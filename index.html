@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tushar · Data Scientist · Data Engineer · Analytics Engineer</title>
+<meta name="description" content="Portfolio of Tushar, Data Scientist, Data Engineer, and Analytics Engineer. Databricks, FinOps, and data quality engineering with quantified business impact.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%232563eb%22/><text x=%2250%22 y=%2270%22 font-family=%22Arial,sans-serif%22 font-size=%2262%22 font-weight=%22800%22 fill=%22white%22 text-anchor=%22middle%22>T</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="noise-overlay"></div>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">Tushar<span class="dot">.</span></a>
+    <button id="navToggle" class="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header id="top" class="hero">
+  <div id="tsparticles" class="particle-net" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Hey, I'm</p>
+    <h1 class="hero-name">Tushar</h1>
+    <h2 class="hero-role">Data Scientist <span class="sep">·</span> Data Engineer <span class="sep">·</span> Analytics Engineer</h2>
+    <p class="hero-sub">
+      Shipping efficient, scalable data solutions with real-world impact to production, most recently
+      as a <strong>Data Science Intern at Barton Malow</strong>. <strong>5+ years of experience</strong> in
+      Data Engineering and Analytics across Oracle and Accenture, currently building deeper Data Science
+      foundations at Penn State.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary">View My Work</a>
+      <a href="assets/Tushar_Resume.pdf" class="btn btn-secondary" target="_blank" rel="noopener">Resume (PDF)</a>
+      <a href="mailto:tus2025snoop@outlook.com" class="btn btn-ghost">Email me</a>
+    </div>
+    <div class="hero-links">
+      <a href="https://github.com/tus2014ar" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/fnu-tushar-945648131/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://medium.com/@tusharsingh_37238" target="_blank" rel="noopener">Medium</a>
+    </div>
+
+    <div class="terminal" role="img" aria-label="Terminal showing a CI-gated git workflow: branch, commit, pull request, passing CI check, and merge.">
+      <div class="terminal-bar">
+        <span class="terminal-dot dot-red"></span>
+        <span class="terminal-dot dot-yellow"></span>
+        <span class="terminal-dot dot-green"></span>
+        <span class="terminal-title">tushar@shipit: ~/databricks-cost-analytics</span>
+      </div>
+      <pre class="terminal-body"><code id="terminalOutput"></code><span class="terminal-cursor">&#9608;</span></pre>
+    </div>
+  </div>
+  <div class="hero-scroll-cue" aria-hidden="true">
+    <span></span>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ IMPACT STRIP ============ -->
+  <section class="impact-strip" aria-label="Career highlights">
+    <div class="impact-inner">
+      <div class="impact-item">
+        <span class="impact-number">$142K</span>
+        <span class="impact-label">platform spend brought under governance at Barton Malow</span>
+      </div>
+      <div class="impact-item">
+        <span class="impact-number">211</span>
+        <span class="impact-label">automated data quality checks shipped to production</span>
+      </div>
+      <div class="impact-item">
+        <span class="impact-number">10M+</span>
+        <span class="impact-label">records validated across telecom billing pipelines at Oracle</span>
+      </div>
+      <div class="impact-item">
+        <span class="impact-number">90×</span>
+        <span class="impact-label">faster billing automation built at Accenture</span>
+      </div>
+      <div class="impact-item">
+        <span class="impact-number">Top 10</span>
+        <span class="impact-label">of 60+ teams, Penn State Nittany AI Challenge 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ENGINEERING PRINCIPLES ============ -->
+  <section id="principles" class="section principles-section">
+    <div class="section-inner">
+      <p class="section-eyebrow">The Pragmatic Builder</p>
+      <h2 class="section-title">Everything is built on a production mindset.</h2>
+      <p class="principles-lede">
+        "Understanding existing systems deeply before changing them, designing for the next person who has
+        to maintain my work, and communicating technical findings in a way non-technical stakeholders can
+        act on." That’s the standard I actually build to.
+      </p>
+
+      <div class="principles-grid">
+        <article class="principle-card">
+          <span class="principle-mark">01</span>
+          <h4>Never breaks the upstream job</h4>
+          <p>Every data quality and cost pipeline I've shipped runs as a soft-fail observer: a failing check writes a finding row, it never raises and kills the parent job. A DQ failure is a data observation, not a pipeline outage.</p>
+        </article>
+        <article class="principle-card">
+          <span class="principle-mark">02</span>
+          <h4>Idempotent by design</h4>
+          <p>Every gold table load pairs with a post-write uniqueness check that runs on <em>every</em> execution, not just at build time, so reruns, backfills, and late-arriving data can't silently create duplicate rows.</p>
+        </article>
+        <article class="principle-card">
+          <span class="principle-mark">03</span>
+          <h4>CI-gated, AI-assisted</h4>
+          <p>Every pipeline repo ships with lint + a schema validator tested against real broken input: a malformed rule or a broken job dependency fails the build before it fails in production. I use Claude Code across the full git lifecycle, including branching, commits, PR reviews, and merges, to move faster, but every change still ships through a branch, a pull request, and a green CI check before it touches main. AI accelerates the workflow; it doesn't bypass the gate.</p>
+        </article>
+        <article class="principle-card">
+          <span class="principle-mark">04</span>
+          <h4>Documented for the next person</h4>
+          <p>Architecture docs, decision logs, and known-limitations sections ship with every pipeline, not just the happy path. The goal is that someone else can maintain it without asking me first.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience" class="section">
+    <div class="section-inner">
+      <p class="section-eyebrow">01 · Experience</p>
+      <h2 class="section-title">5+ years turning messy real-world data into decisions leadership can act on</h2>
+
+      <div class="timeline">
+
+        <article class="job job-featured">
+          <div class="job-head">
+            <div>
+              <h3 class="job-role">Data Science Intern</h3>
+              <p class="job-company">Barton Malow <span class="job-tag">Featured</span></p>
+            </div>
+            <div class="job-meta">
+              <span class="job-date">May 2026 – Aug 2026</span>
+              <span class="job-loc">Michigan, United States</span>
+            </div>
+          </div>
+          <ul class="job-bullets">
+            <li>Built a <strong>Databricks Cost Analytics pipeline</strong> and 4-tab leadership dashboard from Unity Catalog billing/compute data, surfacing <strong>$142K</strong> in lifetime platform spend and <strong>$13.2K</strong> in idle resource cost across <strong>885 unused objects</strong>. Automated an ownership-resolution hierarchy across 933 resources that cut the unowned-spend gap from <strong>85.6% to 54%</strong>.</li>
+            <li>Designed a <strong>Claude AI cost-attribution dashboard</strong> isolating agent query costs from shared Databricks serverless compute (20+ users, 8,000+ queries, $0.53 avg cost/query), revealing AI's share of warehouse spend grew <strong>5.5× in 5 months (1.5% → 8.3%)</strong>, giving leadership real-time cost visibility before it became a budget concern.</li>
+            <li>Engineered a <strong>211-rule automated data quality framework</strong> spanning 23 production tables in a <strong>$159B CRM pipeline</strong>, achieving 100% clean execution while using DQX's AI-driven profiler to accelerate future rule generation.</li>
+          </ul>
+          <div class="job-skills">
+            <span>Databricks</span><span>PySpark</span><span>SQL</span><span>Python</span><span>Claude Code</span><span>GitHub Actions</span>
+          </div>
+          <div class="job-links">
+            <a href="https://github.com/tus2014ar/databricks-cost-analytics" target="_blank" rel="noopener">Cost Analytics repo →</a>
+            <a href="https://github.com/tus2014ar/databricks-data-quality-framework" target="_blank" rel="noopener">DQX repo →</a>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <div>
+              <h3 class="job-role">Research Assistant, Data Science</h3>
+              <p class="job-company">Pennsylvania State University</p>
+            </div>
+            <div class="job-meta">
+              <span class="job-date">Sep 2025 – May 2026</span>
+              <span class="job-loc">Pennsylvania, United States</span>
+            </div>
+          </div>
+          <ul class="job-bullets">
+            <li>Developed forecasting models on historical attendance data, achieving <strong>92% accuracy</strong> and enabling data-driven vendor allocation and capacity planning.</li>
+            <li>Reduced event planning timeline <strong>83% (12 months → 2 months)</strong> by building data-driven workflows, dashboards, and scenario simulations that aligned stakeholders on constraints and priorities.</li>
+            <li>Prototyped autonomous AI agents for continuous auditing and ethical compliance, including WORM-based audit trails, ontology-driven fairness checks, and cybersecurity safeguards aligned with ISO/IEC 42001.</li>
+          </ul>
+          <div class="job-skills">
+            <span>Statistical Modeling</span><span>Forecasting</span><span>Agentic AI</span><span>Python</span><span>SQL</span>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <div>
+              <h3 class="job-role">Staff Data Consultant</h3>
+              <p class="job-company">Oracle Corporation</p>
+            </div>
+            <div class="job-meta">
+              <span class="job-date">Feb 2022 – Dec 2024</span>
+              <span class="job-loc">Bangalore, India</span>
+            </div>
+          </div>
+          <ul class="job-bullets">
+            <li>Validated end-to-end billing data pipelines for <strong>600K+ telecom subscribers</strong> using SQL-driven quality checks, anomaly detection rules, and reconciliation reports, maintaining <strong>98%+ accuracy</strong> within SLAs.</li>
+            <li>Built and automated KPI dashboards (churn, usage patterns) with <strong>99% on-time delivery</strong>, enabling leadership to track performance in weekly reviews.</li>
+            <li>Led onsite test efforts, coordinating with offshore analytics teams to deliver readiness dashboards supporting a successful, on-time go-live.</li>
+          </ul>
+          <div class="job-skills">
+            <span>Oracle Database</span><span>SQL</span><span>Data Analysis</span><span>Business Analysis</span>
+          </div>
+          <div class="job-award"><span class="award-badge">Award</span> Oracle "Best Upcoming Talent," FY23 Q3</div>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <div>
+              <h3 class="job-role">Data Consultant</h3>
+              <p class="job-company">Accenture Solutions Pvt Ltd</p>
+            </div>
+            <div class="job-meta">
+              <span class="job-date">Jun 2019 – Feb 2022</span>
+              <span class="job-loc">Pune, India</span>
+            </div>
+          </div>
+          <ul class="job-bullets">
+            <li>Identified and resolved <strong>50+ recurring data quality issues</strong> in production billing datasets for a <strong>4.5M-customer</strong> base, improving billing accuracy and customer trust.</li>
+            <li>Automated batch bill-run workflows using SQL scripts and scheduling, cutting processing time from 1 day to 2 hours <strong>(90× faster)</strong> and manual effort by <strong>92%</strong>.</li>
+            <li>Designed a SQL-based data validation framework (row-level checks, reconciliation, exception flags) that reduced discrepancies by <strong>60%</strong> and shortened month-end close by <strong>10%</strong>.</li>
+          </ul>
+          <div class="job-skills">
+            <span>SQL</span><span>Shell Scripting</span><span>Excel</span><span>Client Communication</span>
+          </div>
+          <div class="job-award"><span class="award-badge">Award</span> Accenture "Shared Success Catalyst," Addressing Client &amp; Community Needs</div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects" class="section section-alt">
+    <div class="section-inner">
+      <p class="section-eyebrow">02 · Featured Projects</p>
+      <h2 class="section-title">Real systems, real numbers</h2>
+
+      <div class="pillar-group">
+        <h3 class="pillar-title">Data Engineering</h3>
+        <div class="project-grid">
+
+          <article class="project-card project-card-flagship">
+            <div class="project-stats">
+              <div><strong>211</strong><span>checks</span></div>
+              <div><strong>23</strong><span>tables</span></div>
+              <div><strong>84%</strong><span>records flagged</span></div>
+            </div>
+            <h4>Databricks Data Quality Framework</h4>
+            <p>Automated data quality monitoring built on Databricks DQX. Surfaced that 84% of active records carried at least one issue, and root-caused a ~39% completeness gap in a core reporting table.</p>
+            <div class="project-prod-signals">
+              <span>CI: lint + schema validation</span>
+              <span>Soft-fail: never breaks the upstream job</span>
+            </div>
+            <div class="project-tags"><span>Databricks</span><span>PySpark</span><span>SQL</span><span>Python</span></div>
+            <a href="https://github.com/tus2014ar/databricks-data-quality-framework" target="_blank" rel="noopener" class="project-link">View repo →</a>
+          </article>
+
+          <article class="project-card project-card-flagship">
+            <div class="project-stats">
+              <div><strong>$142K</strong><span>spend governed</span></div>
+              <div><strong>54%</strong><span>unowned spend (from 85.6%)</span></div>
+              <div><strong>2×</strong><span>error caught pre-ship</span></div>
+            </div>
+            <h4>Databricks Cost Analytics & FinOps</h4>
+            <p>FinOps cost-attribution pipeline on Unity Catalog system tables. Cut unowned spend from 85.6% to 54% and caught a 2x measurement error in the AI-cost methodology before it shipped.</p>
+            <div class="project-prod-signals">
+              <span>CI: lint + job-config validation</span>
+              <span>Idempotent: 0 duplicate rows on every rerun</span>
+            </div>
+            <div class="project-tags"><span>Databricks</span><span>PySpark</span><span>SQL</span><span>Star Schema</span></div>
+            <a href="https://github.com/tus2014ar/databricks-cost-analytics" target="_blank" rel="noopener" class="project-link">View repo →</a>
+          </article>
+
+          <article class="project-card">
+            <h4>Scholar Swipe: Scholarship Scraper</h4>
+            <p>Automated scraping pipeline extracting scholarship listings into a centralized PostgreSQL (Supabase) database, with upsert-based dedup and automated summarization.</p>
+            <div class="project-tags"><span>Python</span><span>BeautifulSoup4</span><span>PostgreSQL</span></div>
+            <a href="https://github.com/tus2014ar/Scholar-Swipe-Web-Scraping-Project" target="_blank" rel="noopener" class="project-link">View repo →</a>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="pillar-group">
+        <h3 class="pillar-title">Data Science / ML</h3>
+        <div class="project-grid">
+
+          <article class="project-card">
+            <h4>AI Sentinel: Compliance Monitoring</h4>
+            <p>Autonomous compliance agents detecting AI-driven regulatory risk in real time. Top 10 of 60+ teams, Penn State Nittany AI Challenge 2026. 5 detection rules mapped to CMS federal regulations (42 CFR §483).</p>
+            <div class="project-tags"><span>Python</span><span>Streamlit</span><span>Ollama</span><span>Gemini</span></div>
+            <a href="https://github.com/tus2014ar/AI-Sentinel---Automated-AI-Compliance-Monitoring-Platform" target="_blank" rel="noopener" class="project-link">View repo →</a>
+          </article>
+
+          <article class="project-card">
+            <h4>Resume–JD Matching via Deep Learning</h4>
+            <p>3-stage semantic ranking pipeline: TF-IDF baseline → SBERT embeddings → supervised neural refinement into a calibrated match probability. 120 resumes ranked against 2,277 job descriptions.</p>
+            <div class="project-tags"><span>Python</span><span>PyTorch</span><span>SBERT</span></div>
+            <a href="https://github.com/tus2014ar/Resume-Job-Description-Matching-Using-Deep-Learning" target="_blank" rel="noopener" class="project-link">View repo →</a>
+          </article>
+
+          <article class="project-card">
+            <h4>Worldwide LLM Sentiment Analysis</h4>
+            <p>End-to-end NLP + geospatial pipeline tracking global sentiment toward LLMs across 305K+ tweets. Location-normalization cut unresolved geography from 72.8% to 43.85%.</p>
+            <div class="project-tags"><span>Python</span><span>NLTK/VADER</span><span>Plotly</span></div>
+            <a href="https://github.com/tus2014ar/Worldwide-Sentiment-Analysis-of-LLM-related-tweets" target="_blank" rel="noopener" class="project-link">View repo →</a>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="pillar-group">
+        <h3 class="pillar-title">Analytics Engineering / BI</h3>
+        <div class="project-grid">
+
+          <article class="project-card">
+            <h4>Alzheimer's Market Overview (US)</h4>
+            <p>TRx-based pharmaceutical market analysis across brands, specialties, and channels. 202,499-row dataset, built as parallel Python (Plotly) and Tableau dashboards for direct platform comparison.</p>
+            <div class="project-tags"><span>Python</span><span>Pandas</span><span>Plotly</span><span>Tableau</span></div>
+            <a href="https://github.com/tus2014ar/Alzheimer-s-Market-Overview---United-States" target="_blank" rel="noopener" class="project-link">View repo →</a>
+          </article>
+
+          <article class="project-card">
+            <h4>Penn State Alumni Event Forecasting</h4>
+            <p>Multi-year (2022–2025) event performance analysis with scenario-based 2026 forecasting, projecting 235 attendees and $49/attendee revenue via a blended trend + recency-weighted model.</p>
+            <div class="project-tags"><span>Python</span><span>Pandas</span><span>Forecasting</span></div>
+            <a href="https://github.com/tus2014ar/Penn-State-GV-Alumni-Event-Performance-Analysis-Forecasting" target="_blank" rel="noopener" class="project-link">View repo →</a>
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESEARCH & RECOGNITION ============ -->
+  <section id="research" class="section">
+    <div class="section-inner">
+      <p class="section-eyebrow">03 · Research & Recognition</p>
+      <h2 class="section-title">Published work and competitive recognition</h2>
+
+      <div class="research-grid">
+        <article class="research-card">
+          <span class="research-kicker">Published Paper · Springer Nature</span>
+          <h3>Autonomous Multi-Agent Governance: AI Sentinel Framework for Mitigating Psychological Restraints in AI-Driven Fall Management</h3>
+          <p>Accepted and presented at <strong>SEET 2026</strong> (2nd International Conference on Software Engineering of Emerging Technologies), Penn State Behrend, PhD Research Track. To be published in the official conference proceedings by Springer Nature.</p>
+        </article>
+
+        <article class="research-card">
+          <span class="research-kicker">Competition · Penn State Nittany AI Challenge 2026</span>
+          <h3>AI Sentinel: Top 10 of 60+ Teams</h3>
+          <p>Won the Prototype Phase and MVP Phase, advanced through funded phases to a Top 10 finish at the Pitch Contest, Hintz Family Alumni Center, University Park.</p>
+        </article>
+
+        <article class="research-card">
+          <span class="research-kicker">Award · Oracle Corporation</span>
+          <h3>"Best Upcoming Talent" (FY23 Q3)</h3>
+          <p>Recognized for exceptional contributions and high-impact performance on the Telia Company billing analytics engagement.</p>
+        </article>
+
+        <article class="research-card">
+          <span class="research-kicker">Leadership · Penn State University</span>
+          <h3>Student Senator</h3>
+          <p>Representing students in discussions with university leadership; championing AI literacy and equitable AI access across Penn State's Commonwealth Caucus.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills" class="section section-alt">
+    <div class="section-inner">
+      <p class="section-eyebrow">04 · Skills</p>
+      <h2 class="section-title">Tools I actually ship with</h2>
+
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h4>Programming</h4>
+          <p>Python (Pandas, NumPy, Matplotlib, Seaborn, scikit-learn, TensorFlow, PyTorch, Keras) · SQL · R · Java</p>
+        </div>
+        <div class="skill-group">
+          <h4>Data Engineering & Cloud</h4>
+          <p>Databricks · PySpark · Unity Catalog · Azure · AWS · Oracle Database · PostgreSQL · PL/SQL</p>
+        </div>
+        <div class="skill-group">
+          <h4>ML & Statistics</h4>
+          <p>Regression · Classification · Clustering · NLP · Time Series Forecasting · Feature Engineering · Model Evaluation (AUC, F1)</p>
+        </div>
+        <div class="skill-group">
+          <h4>BI & Visualization</h4>
+          <p>Tableau · Power BI · Plotly · Matplotlib · Seaborn</p>
+        </div>
+        <div class="skill-group">
+          <h4>Dev Tools</h4>
+          <p>Git · GitHub Actions · Jupyter · Jira</p>
+        </div>
+        <div class="skill-group">
+          <h4>AI Tools</h4>
+          <p>Claude Code · Claude Cowork · Claude Skills · Claude Projects · Claude MCP · ChatGPT · GitHub Copilot · Cursor IDE · Perplexity · Ollama · Google Gemini · Julius AI</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section id="education" class="section">
+    <div class="section-inner">
+      <p class="section-eyebrow">05 · Education</p>
+      <h2 class="section-title">Background</h2>
+
+      <div class="edu-grid">
+        <article class="edu-card">
+          <div class="edu-head">
+            <h3>Pennsylvania State University</h3>
+            <span class="edu-date">Aug 2025 – Dec 2026</span>
+          </div>
+          <p class="edu-degree">Master of Data Analytics · GPA 3.96/4</p>
+          <p class="edu-detail">Statistical Analysis, Data-Driven Decision Making, Predictive Analytics, Deep Learning, Natural Language Processing.</p>
+        </article>
+
+        <article class="edu-card">
+          <div class="edu-head">
+            <h3>KIIT University</h3>
+            <span class="edu-date">May 2015 – May 2019</span>
+          </div>
+          <p class="edu-degree">B.Tech, Electronics & Instrumentation Engineering · GPA 3.3/4</p>
+          <p class="edu-detail">Control Systems, Digital Electronics, OOP, Data Structures & Algorithms, Web Technology, Artificial Intelligence.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="section contact-section">
+    <div class="section-inner contact-inner">
+      <p class="section-eyebrow">06 · Get in touch</p>
+      <h2 class="section-title">Let's build something that ships.</h2>
+      <p class="contact-sub">Open to full-time Data Scientist / Data Engineer / Analytics Engineer roles starting Dec 2026.</p>
+      <div class="contact-actions">
+        <a href="mailto:tus2025snoop@outlook.com" class="btn btn-primary">tus2025snoop@outlook.com</a>
+        <a href="assets/Tushar_Resume.pdf" class="btn btn-secondary" target="_blank" rel="noopener">Download Resume</a>
+      </div>
+      <div class="contact-links">
+        <a href="https://github.com/tus2014ar" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/fnu-tushar-945648131/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://medium.com/@tusharsingh_37238" target="_blank" rel="noopener">Medium</a>
+        <a href="https://www.youtube.com/@corporateaspirant8965" target="_blank" rel="noopener">YouTube</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Tushar. Built with Databricks-grade rigor.</p>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
