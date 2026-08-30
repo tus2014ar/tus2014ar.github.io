@@ -737,6 +737,7 @@ img, svg { max-width: 100%; display: block; }
 }
 .research-card h3 { font-size: 1.02rem; font-weight: 700; margin-bottom: 10px; line-height: 1.35; }
 .research-card p { font-size: 0.88rem; color: var(--text-dim); }
+.research-card .project-link { display: inline-block; margin-top: 10px; }
 
 /* ============ SKILLS ============ */
 .skills-grid {
