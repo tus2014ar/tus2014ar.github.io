@@ -506,6 +506,15 @@ img, svg { max-width: 100%; display: block; }
 
 /* ============ ENGINEERING PRINCIPLES ============ */
 .principles-section { padding-bottom: 88px; }
+.principles-section .section-title { margin-bottom: 14px; }
+
+.principles-subtitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  max-width: 640px;
+  margin-bottom: 28px;
+}
 
 .principles-lede {
   font-size: 1.02rem;
