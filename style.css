@@ -176,15 +176,11 @@ img, svg { max-width: 100%; display: block; }
 
 .particle-net {
   position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 380px;
+  inset: 0;
   z-index: 0;
   overflow: hidden;
-  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-}
-@media (max-width: 720px) {
-  .particle-net { height: 280px; }
+  mask-image: linear-gradient(to bottom, black 78%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 78%, transparent 100%);
 }
 .particle-net canvas {
   position: absolute !important;
