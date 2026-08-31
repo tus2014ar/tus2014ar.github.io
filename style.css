@@ -112,11 +112,13 @@ img, svg { max-width: 100%; display: block; }
 }
 
 .nav-logo {
-  font-weight: 800;
-  font-size: 1.15rem;
-  letter-spacing: -0.02em;
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  letter-spacing: -0.01em;
 }
-.nav-logo .dot { color: var(--accent); }
+.nav-current { color: var(--accent); font-weight: 700; }
 
 .nav-links {
   display: flex;

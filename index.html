@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 
@@ -18,7 +18,7 @@
 
 <nav id="navbar">
   <div class="nav-inner">
-    <a href="#top" class="nav-logo">Tushar<span class="dot">.</span></a>
+    <a href="#top" class="nav-logo">~/tushar/<span id="navCurrent" class="nav-current">home</span></a>
     <button id="navToggle" class="nav-toggle" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
@@ -96,8 +96,8 @@
   <!-- ============ STORY ============ -->
   <section id="story" class="section story-section">
     <div class="section-inner">
-      <p class="section-eyebrow">How I Got Here</p>
-      <h2 class="section-title">Five years, one throughline</h2>
+      <p class="section-eyebrow">$ git log --oneline --graph</p>
+      <h2 class="section-title">How I got here</h2>
       <p class="principles-lede">
         Five years of watching production billing pipelines fail quietly set the direction. Every
         stop since has been about building the tools that catch a failure before it becomes an
@@ -141,8 +141,8 @@
   <!-- ============ ENGINEERING PRINCIPLES ============ -->
   <section id="principles" class="section principles-section">
     <div class="section-inner">
-      <p class="section-eyebrow">The Pragmatic Builder</p>
-      <h2 class="section-title">Everything is built on a production mindset.</h2>
+      <p class="section-eyebrow">$ cat PRINCIPLES.md</p>
+      <h2 class="section-title">The pragmatic builder</h2>
       <p class="principles-lede">
         "Understanding existing systems deeply before changing them, designing for the next person who has
         to maintain my work, and communicating technical findings in a way non-technical stakeholders can
@@ -569,6 +569,6 @@
   <p>&copy; 2026 Tushar. Built with Databricks-grade rigor.</p>
 </footer>
 
-<script src="script.js?v=3" defer></script>
+<script src="script.js?v=4" defer></script>
 </body>
 </html>
