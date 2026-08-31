@@ -709,13 +709,26 @@ img, svg { max-width: 100%; display: block; }
 .job-links a:hover { text-decoration: underline; }
 
 /* ============ PROJECTS ============ */
-.pillar-group { margin-bottom: 56px; }
-.pillar-group:last-child { margin-bottom: 0; }
-.pillar-title {
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin-bottom: 22px;
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
 }
+.tab {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: border-color .15s ease, color .15s ease, background-color .15s ease;
+}
+.tab:hover { border-color: var(--accent); color: var(--text); }
+.tab.active { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
 
 .project-grid {
   display: grid;
@@ -731,12 +744,13 @@ img, svg { max-width: 100%; display: block; }
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 26px;
-  display: flex;
+  display: none;
   flex-direction: column;
   transform-style: preserve-3d;
   transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(var(--ty));
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
+.project-card.show { display: flex; }
 .project-card:hover {
   --ty: -3px;
   box-shadow: var(--shadow);
