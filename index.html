@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=10">
+<link rel="stylesheet" href="style.css?v=11">
 </head>
 <body>
 
@@ -439,6 +439,20 @@
               <rect x="0" y="12" width="336" height="16" rx="8" class="meter-fill"/>
               <text x="346" y="25" class="meter-label">84%</text>
             </svg>
+          </div>
+
+          <div class="case-widget monitor-widget" role="img" aria-label="Illustration of the 211 automated checks running continuously on every scheduled pipeline run, currently active, keeping flagged issues near the clean-execution baseline.">
+            <div class="monitor-head">
+              <span class="monitor-label">Automated Monitoring</span>
+              <span class="monitor-status"><span class="monitor-dot"></span>Active</span>
+            </div>
+            <svg viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, monospace" class="monitor-wave">
+              <line x1="0" y1="75" x2="300" y2="75" class="monitor-baseline"/>
+              <polygon class="monitor-area" points="0,100 0,60 12,55 25,62 37,50 50,58 62,42 75,48 87,35 100,45 112,38 125,52 137,45 150,58 162,50 175,62 187,55 200,68 212,60 225,72 237,65 250,74 262,70 275,78 287,74 300,76 300,100"/>
+              <polyline class="monitor-line" points="0,60 12,55 25,62 37,50 50,58 62,42 75,48 87,35 100,45 112,38 125,52 137,45 150,58 162,50 175,62 187,55 200,68 212,60 225,72 237,65 250,74 262,70 275,78 287,74 300,76"/>
+              <circle cx="300" cy="76" r="4" class="monitor-live-dot"/>
+            </svg>
+            <p class="monitor-caption">211 checks · 23 tables · every scheduled run <span class="monitor-live"><span class="monitor-dot"></span>LIVE</span></p>
           </div>
         </div>
 
