@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css?v=8">
 </head>
 <body>
 
@@ -286,99 +286,88 @@
       <p class="section-eyebrow">$ ls ./projects</p>
       <h2 class="section-title">Real systems, real numbers</h2>
 
-      <div class="pillar-group">
-        <h3 class="pillar-title">Data Engineering</h3>
-        <div class="project-grid">
-
-          <article class="project-card project-card-flagship">
-            <div class="project-stats">
-              <div><strong>211</strong><span>checks</span></div>
-              <div><strong>23</strong><span>tables</span></div>
-              <div><strong>84%</strong><span>records flagged</span></div>
-            </div>
-            <h4>Databricks Data Quality Framework</h4>
-            <p>Automated data quality monitoring built on Databricks DQX. Surfaced that 84% of active records carried at least one issue, and root-caused a ~39% completeness gap in a core reporting table.</p>
-            <div class="project-prod-signals">
-              <span>CI: lint + schema validation</span>
-              <span>Soft-fail: never breaks the upstream job</span>
-            </div>
-            <div class="project-tags"><span>Databricks</span><span>PySpark</span><span>SQL</span><span>Python</span></div>
-            <a href="https://github.com/tus2014ar/databricks-data-quality-framework" target="_blank" rel="noopener" class="project-link">View repo →</a>
-          </article>
-
-          <article class="project-card project-card-flagship">
-            <div class="project-stats">
-              <div><strong>$142K</strong><span>spend governed</span></div>
-              <div><strong>54%</strong><span>unowned spend (from 85.6%)</span></div>
-              <div><strong>2×</strong><span>error caught pre-ship</span></div>
-            </div>
-            <h4>Databricks Cost Analytics & FinOps</h4>
-            <p>FinOps cost-attribution pipeline on Unity Catalog system tables. Cut unowned spend from 85.6% to 54% and caught a 2x measurement error in the AI-cost methodology before it shipped.</p>
-            <div class="project-prod-signals">
-              <span>CI: lint + job-config validation</span>
-              <span>Idempotent: 0 duplicate rows on every rerun</span>
-            </div>
-            <div class="project-tags"><span>Databricks</span><span>PySpark</span><span>SQL</span><span>Star Schema</span></div>
-            <a href="https://github.com/tus2014ar/databricks-cost-analytics" target="_blank" rel="noopener" class="project-link">View repo →</a>
-          </article>
-
-          <article class="project-card">
-            <h4>Scholar Swipe: Scholarship Scraper</h4>
-            <p>Automated scraping pipeline extracting scholarship listings into a centralized PostgreSQL (Supabase) database, with upsert-based dedup and automated summarization.</p>
-            <div class="project-tags"><span>Python</span><span>BeautifulSoup4</span><span>PostgreSQL</span></div>
-            <a href="https://github.com/tus2014ar/Scholar-Swipe-Web-Scraping-Project" target="_blank" rel="noopener" class="project-link">View repo →</a>
-          </article>
-
-        </div>
+      <div class="tabs">
+        <button class="tab active" data-cat="ds">Data Science</button>
+        <button class="tab" data-cat="de">Data Engineering</button>
+        <button class="tab" data-cat="da">Data Analytics</button>
       </div>
 
-      <div class="pillar-group">
-        <h3 class="pillar-title">Data Science / ML</h3>
-        <div class="project-grid">
+      <div class="project-grid" id="projectGrid">
 
-          <article class="project-card">
-            <h4>AI Sentinel: Compliance Monitoring</h4>
-            <p>Autonomous compliance agents detecting AI-driven regulatory risk in real time. Top 10 of 60+ teams, Penn State Nittany AI Challenge 2026. 5 detection rules mapped to CMS federal regulations (42 CFR §483).</p>
-            <div class="project-tags"><span>Python</span><span>Streamlit</span><span>Ollama</span><span>Gemini</span></div>
-            <a href="https://github.com/tus2014ar/AI-Sentinel---Automated-AI-Compliance-Monitoring-Platform" target="_blank" rel="noopener" class="project-link">View repo →</a>
-          </article>
+        <article class="project-card show" data-cat="ds">
+          <h4>AI Sentinel: Compliance Monitoring</h4>
+          <p>Autonomous compliance agents detecting AI-driven regulatory risk in real time. Top 10 of 60+ teams, Penn State Nittany AI Challenge 2026. 5 detection rules mapped to CMS federal regulations (42 CFR §483).</p>
+          <div class="project-tags"><span>Python</span><span>Streamlit</span><span>Ollama</span><span>Gemini</span></div>
+          <a href="https://github.com/tus2014ar/AI-Sentinel---Automated-AI-Compliance-Monitoring-Platform" target="_blank" rel="noopener" class="project-link">View repo →</a>
+        </article>
 
-          <article class="project-card">
-            <h4>Resume–JD Matching via Deep Learning</h4>
-            <p>3-stage semantic ranking pipeline: TF-IDF baseline → SBERT embeddings → supervised neural refinement into a calibrated match probability. 120 resumes ranked against 2,277 job descriptions.</p>
-            <div class="project-tags"><span>Python</span><span>PyTorch</span><span>SBERT</span></div>
-            <a href="https://github.com/tus2014ar/Resume-Job-Description-Matching-Using-Deep-Learning" target="_blank" rel="noopener" class="project-link">View repo →</a>
-          </article>
+        <article class="project-card show" data-cat="ds">
+          <h4>Resume–JD Matching via Deep Learning</h4>
+          <p>3-stage semantic ranking pipeline: TF-IDF baseline → SBERT embeddings → supervised neural refinement into a calibrated match probability. 120 resumes ranked against 2,277 job descriptions.</p>
+          <div class="project-tags"><span>Python</span><span>PyTorch</span><span>SBERT</span></div>
+          <a href="https://github.com/tus2014ar/Resume-Job-Description-Matching-Using-Deep-Learning" target="_blank" rel="noopener" class="project-link">View repo →</a>
+        </article>
 
-          <article class="project-card">
-            <h4>Worldwide LLM Sentiment Analysis</h4>
-            <p>End-to-end NLP + geospatial pipeline tracking global sentiment toward LLMs across 305K+ tweets. Location-normalization cut unresolved geography from 72.8% to 43.85%.</p>
-            <div class="project-tags"><span>Python</span><span>NLTK/VADER</span><span>Plotly</span></div>
-            <a href="https://github.com/tus2014ar/Worldwide-Sentiment-Analysis-of-LLM-related-tweets" target="_blank" rel="noopener" class="project-link">View repo →</a>
-          </article>
+        <article class="project-card show" data-cat="ds">
+          <h4>Worldwide LLM Sentiment Analysis</h4>
+          <p>End-to-end NLP + geospatial pipeline tracking global sentiment toward LLMs across 305K+ tweets. Location-normalization cut unresolved geography from 72.8% to 43.85%.</p>
+          <div class="project-tags"><span>Python</span><span>NLTK/VADER</span><span>Plotly</span></div>
+          <a href="https://github.com/tus2014ar/Worldwide-Sentiment-Analysis-of-LLM-related-tweets" target="_blank" rel="noopener" class="project-link">View repo →</a>
+        </article>
 
-        </div>
-      </div>
+        <article class="project-card project-card-flagship" data-cat="de">
+          <div class="project-stats">
+            <div><strong>211</strong><span>checks</span></div>
+            <div><strong>23</strong><span>tables</span></div>
+            <div><strong>84%</strong><span>records flagged</span></div>
+          </div>
+          <h4>Databricks Data Quality Framework</h4>
+          <p>Automated data quality monitoring built on Databricks DQX. Surfaced that 84% of active records carried at least one issue, and root-caused a ~39% completeness gap in a core reporting table.</p>
+          <div class="project-prod-signals">
+            <span>CI: lint + schema validation</span>
+            <span>Soft-fail: never breaks the upstream job</span>
+          </div>
+          <div class="project-tags"><span>Databricks</span><span>PySpark</span><span>SQL</span><span>Python</span></div>
+          <a href="https://github.com/tus2014ar/databricks-data-quality-framework" target="_blank" rel="noopener" class="project-link">View repo →</a>
+        </article>
 
-      <div class="pillar-group">
-        <h3 class="pillar-title">Analytics Engineering / BI</h3>
-        <div class="project-grid">
+        <article class="project-card project-card-flagship" data-cat="de">
+          <div class="project-stats">
+            <div><strong>$142K</strong><span>spend governed</span></div>
+            <div><strong>54%</strong><span>unowned spend (from 85.6%)</span></div>
+            <div><strong>2×</strong><span>error caught pre-ship</span></div>
+          </div>
+          <h4>Databricks Cost Analytics & FinOps</h4>
+          <p>FinOps cost-attribution pipeline on Unity Catalog system tables. Cut unowned spend from 85.6% to 54% and caught a 2x measurement error in the AI-cost methodology before it shipped.</p>
+          <div class="project-prod-signals">
+            <span>CI: lint + job-config validation</span>
+            <span>Idempotent: 0 duplicate rows on every rerun</span>
+          </div>
+          <div class="project-tags"><span>Databricks</span><span>PySpark</span><span>SQL</span><span>Star Schema</span></div>
+          <a href="https://github.com/tus2014ar/databricks-cost-analytics" target="_blank" rel="noopener" class="project-link">View repo →</a>
+        </article>
 
-          <article class="project-card">
-            <h4>Alzheimer's Market Overview (US)</h4>
-            <p>TRx-based pharmaceutical market analysis across brands, specialties, and channels. 202,499-row dataset, built as parallel Python (Plotly) and Tableau dashboards for direct platform comparison.</p>
-            <div class="project-tags"><span>Python</span><span>Pandas</span><span>Plotly</span><span>Tableau</span></div>
-            <a href="https://github.com/tus2014ar/Alzheimer-s-Market-Overview---United-States" target="_blank" rel="noopener" class="project-link">View repo →</a>
-          </article>
+        <article class="project-card" data-cat="de">
+          <h4>Scholar Swipe: Scholarship Scraper</h4>
+          <p>Automated scraping pipeline extracting scholarship listings into a centralized PostgreSQL (Supabase) database, with upsert-based dedup and automated summarization.</p>
+          <div class="project-tags"><span>Python</span><span>BeautifulSoup4</span><span>PostgreSQL</span></div>
+          <a href="https://github.com/tus2014ar/Scholar-Swipe-Web-Scraping-Project" target="_blank" rel="noopener" class="project-link">View repo →</a>
+        </article>
 
-          <article class="project-card">
-            <h4>Penn State Alumni Event Forecasting</h4>
-            <p>Multi-year (2022–2025) event performance analysis with scenario-based 2026 forecasting, projecting 235 attendees and $49/attendee revenue via a blended trend + recency-weighted model.</p>
-            <div class="project-tags"><span>Python</span><span>Pandas</span><span>Forecasting</span></div>
-            <a href="https://github.com/tus2014ar/Penn-State-GV-Alumni-Event-Performance-Analysis-Forecasting" target="_blank" rel="noopener" class="project-link">View repo →</a>
-          </article>
+        <article class="project-card" data-cat="da">
+          <h4>Alzheimer's Market Overview (US)</h4>
+          <p>TRx-based pharmaceutical market analysis across brands, specialties, and channels. 202,499-row dataset, built as parallel Python (Plotly) and Tableau dashboards for direct platform comparison.</p>
+          <div class="project-tags"><span>Python</span><span>Pandas</span><span>Plotly</span><span>Tableau</span></div>
+          <a href="https://github.com/tus2014ar/Alzheimer-s-Market-Overview---United-States" target="_blank" rel="noopener" class="project-link">View repo →</a>
+        </article>
 
-        </div>
+        <article class="project-card" data-cat="da">
+          <h4>Penn State Alumni Event Forecasting</h4>
+          <p>Multi-year (2022–2025) event performance analysis with scenario-based 2026 forecasting, projecting 235 attendees and $49/attendee revenue via a blended trend + recency-weighted model.</p>
+          <div class="project-tags"><span>Python</span><span>Pandas</span><span>Forecasting</span></div>
+          <a href="https://github.com/tus2014ar/Penn-State-GV-Alumni-Event-Performance-Analysis-Forecasting" target="_blank" rel="noopener" class="project-link">View repo →</a>
+        </article>
+
       </div>
 
       <div class="case-study" id="case-study">
@@ -569,6 +558,6 @@
   <p>&copy; 2026 Tushar. Built with Databricks-grade rigor.</p>
 </footer>
 
-<script src="script.js?v=4" defer></script>
+<script src="script.js?v=5" defer></script>
 </body>
 </html>

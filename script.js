@@ -306,6 +306,21 @@ if (termOut) {
   }
 }
 
+// ============ Project tabs ============
+// The default-active tab's cards carry class="show" directly in the HTML,
+// so they're visible even if this script never runs; only switching tabs
+// requires JS.
+document.querySelectorAll('.tab').forEach((tab) => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach((t) => t.classList.remove('active'));
+    tab.classList.add('active');
+    const cat = tab.dataset.cat;
+    document.querySelectorAll('.project-card').forEach((card) => {
+      card.classList.toggle('show', card.dataset.cat === cat);
+    });
+  });
+});
+
 // ============ Magnetic tilt on project cards ============
 // Decorative transform only — cards are fully visible and readable with or
 // without this; it never touches opacity or display.
