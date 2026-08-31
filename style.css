@@ -898,6 +898,43 @@ img, svg { max-width: 100%; display: block; }
   padding-top: 20px;
 }
 
+/* ============ FLAGSHIP VISUAL WIDGETS: meter / dumbbell / trend ============ */
+.case-widgets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-bottom: 26px;
+}
+.case-widget {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 4px);
+  padding: 16px 18px;
+}
+.case-widget-label {
+  font-size: 0.78rem;
+  color: var(--text-faint);
+  margin-bottom: 10px;
+}
+.case-widget svg { width: 100%; height: auto; display: block; }
+
+.meter-track { fill: var(--accent-dim); }
+.meter-fill { fill: var(--accent); }
+.meter-label { fill: var(--text); font-size: 15px; font-weight: 700; }
+
+.dumbbell-tick { stroke: var(--border); stroke-width: 1; }
+.dumbbell-line { stroke: var(--text-faint); stroke-width: 2; }
+.dumbbell-dot-before { fill: var(--text-faint); stroke: var(--bg-alt); stroke-width: 2; }
+.dumbbell-dot-after { fill: var(--gold); stroke: var(--bg-alt); stroke-width: 2; }
+.dumbbell-label { fill: var(--text); font-size: 13px; font-weight: 700; }
+.dumbbell-label-dim { fill: var(--text-dim); font-size: 13px; font-weight: 700; }
+
+.trend-area { fill: var(--gold); opacity: 0.1; }
+.trend-line { stroke: var(--gold); stroke-width: 2; fill: none; }
+.trend-dot-start { fill: var(--text-faint); }
+.trend-dot-end { fill: var(--gold); stroke: var(--bg-alt); stroke-width: 2; }
+.trend-label { fill: var(--text); font-size: 13px; font-weight: 700; }
+
 /* ============ RESEARCH ============ */
 .research-grid {
   display: grid;
