@@ -284,6 +284,9 @@ img, svg { max-width: 100%; display: block; }
   gap: 22px;
 }
 .hero-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 0.88rem;
   font-weight: 500;
   color: var(--text-faint);
@@ -291,6 +294,13 @@ img, svg { max-width: 100%; display: block; }
   transition: color .15s ease, border-color .15s ease;
 }
 .hero-links a:hover { color: var(--accent); border-color: var(--accent); }
+
+.social-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  fill: currentColor;
+}
 
 /* ============ HERO TERMINAL ============ */
 .terminal {
@@ -1129,6 +1139,9 @@ img, svg { max-width: 100%; display: block; }
   gap: 24px;
 }
 .contact-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-dim);
