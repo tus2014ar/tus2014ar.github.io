@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 
@@ -150,28 +150,30 @@
       </p>
 
       <div class="principles-grid">
-        <article class="principle-card">
+        <a class="principle-card" href="#case-study">
           <span class="principle-mark">01</span>
           <h4>Never breaks the upstream job</h4>
           <p>Every data quality and cost pipeline I've shipped runs as a soft-fail observer: a failing check writes a finding row, it never raises and kills the parent job. A DQ failure is a data observation, not a pipeline outage.</p>
-          <a href="#projects" class="project-link principle-link">→ see it in Cost Analytics</a>
-        </article>
-        <article class="principle-card">
+          <span class="principle-cta">→ see it in Cost Analytics</span>
+        </a>
+        <a class="principle-card" href="#case-study">
           <span class="principle-mark">02</span>
           <h4>Idempotent by design</h4>
           <p>Every gold table load pairs with a post-write uniqueness check that runs on <em>every</em> execution, not just at build time, so reruns, backfills, and late-arriving data can't silently create duplicate rows.</p>
-          <a href="#projects" class="project-link principle-link">→ see it in Cost Analytics</a>
-        </article>
-        <article class="principle-card">
+          <span class="principle-cta">→ see it in Cost Analytics</span>
+        </a>
+        <a class="principle-card" href="#projects">
           <span class="principle-mark">03</span>
           <h4>CI-gated, AI-assisted</h4>
           <p>Every pipeline repo ships with lint + a schema validator tested against real broken input: a malformed rule or a broken job dependency fails the build before it fails in production. I use Claude Code across the full git lifecycle, including branching, commits, PR reviews, and merges, to move faster, but every change still ships through a branch, a pull request, and a green CI check before it touches main. AI accelerates the workflow; it doesn't bypass the gate.</p>
-        </article>
-        <article class="principle-card">
+          <span class="principle-cta">→ see it in Featured Projects</span>
+        </a>
+        <a class="principle-card" href="#experience">
           <span class="principle-mark">04</span>
           <h4>Documented for the next person</h4>
           <p>Architecture docs, decision logs, and known-limitations sections ship with every pipeline, not just the happy path. The goal is that someone else can maintain it without asking me first.</p>
-        </article>
+          <span class="principle-cta">→ see it across Experience</span>
+        </a>
       </div>
     </div>
   </section>
@@ -379,7 +381,7 @@
         </div>
       </div>
 
-      <div class="case-study">
+      <div class="case-study" id="case-study">
         <p class="case-eyebrow">Deep Dive · Barton Malow, 2026</p>
         <h3 class="case-title">One pipeline, how it actually works</h3>
         <p class="case-intro">The project card above tells you what shipped. This is how the Cost Analytics pipeline is built underneath.</p>
