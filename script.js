@@ -189,6 +189,16 @@ if (termOut) {
   // Each step: a typed command line, followed by instantly-printed output lines.
   const script = [
     {
+      cmd: '$ whoami',
+      output: [
+        { t: 'Shipping efficient, scalable data solutions with real-world impact to' },
+        { t: 'production, most recently as a Data Science Intern at Barton Malow.' },
+        { t: '5+ years of experience in Data Engineering and Analytics across Oracle' },
+        { t: 'and Accenture, currently building deeper Data Science foundations at' },
+        { t: 'Penn State.' },
+      ],
+    },
+    {
       cmd: '$ git checkout -b add-databricks-cost-analytics',
       output: [{ t: "Switched to a new branch 'add-databricks-cost-analytics'", cls: 't-dim' }],
     },
