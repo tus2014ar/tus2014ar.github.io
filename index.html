@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=9">
+<link rel="stylesheet" href="style.css?v=10">
 </head>
 <body>
 
@@ -373,7 +373,20 @@
       <div class="case-study" id="dqx-deep-dive">
         <p class="case-eyebrow">Deep Dive · Barton Malow, 2026</p>
         <h3 class="case-title">211 checks, one pipeline</h3>
-        <p class="case-intro">The project card above tells you what shipped. This is how it flags a bad record and gets it fixed.</p>
+        <div class="case-pwh">
+          <div class="case-pwh-item">
+            <h4>Problem</h4>
+            <p>23 production tables in a $159B CRM pipeline had no automated way to catch bad data before it reached downstream reports.</p>
+          </div>
+          <div class="case-pwh-item">
+            <h4>Why</h4>
+            <p>Bad records silently corrupt reporting and decisions. The earlier one is caught, the cheaper it is to fix.</p>
+          </div>
+          <div class="case-pwh-item">
+            <h4>How</h4>
+            <p>211 automated rules run on a scheduled bronze/gold pipeline, CI-gated and soft-fail, routing findings to record owners every week.</p>
+          </div>
+        </div>
 
         <div class="case-diagram" role="img" aria-label="Pipeline diagram: 23 bronze and gold source tables feed a DQX rule engine running 211 checks, writing to a findings table, which drives a weekly digest email routed to record owners for resolution. A dashed line notes the engine runs as a soft-fail observer, never breaking the upstream job.">
           <svg viewBox="0 0 720 210" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, monospace">
@@ -446,7 +459,20 @@
       <div class="case-study" id="case-study">
         <p class="case-eyebrow">Deep Dive · Barton Malow, 2026</p>
         <h3 class="case-title">One pipeline, how it actually works</h3>
-        <p class="case-intro">The project card above tells you what shipped. This is how the Cost Analytics pipeline is built underneath.</p>
+        <div class="case-pwh">
+          <div class="case-pwh-item">
+            <h4>Problem</h4>
+            <p>85.6% of Databricks platform spend had no identifiable owner, and AI agent costs were invisible inside shared compute.</p>
+          </div>
+          <div class="case-pwh-item">
+            <h4>Why</h4>
+            <p>You can't govern spend you can't attribute, and AI usage was growing too fast to stay unmeasured.</p>
+          </div>
+          <div class="case-pwh-item">
+            <h4>How</h4>
+            <p>An automated ownership-resolution pipeline across 933 resources, plus a dedicated AI cost-attribution layer, feeding a 4-tab leadership dashboard.</p>
+          </div>
+        </div>
 
         <div class="case-diagram" role="img" aria-label="Pipeline diagram: Unity Catalog system tables flow into a Bronze layer of raw billing events, then a Silver layer resolving ownership across 933 resources, then an idempotent Gold layer, feeding a 4-tab leadership dashboard. A dashed line notes a post-write uniqueness check running on every execution.">
           <svg viewBox="0 0 720 210" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, monospace">
