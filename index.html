@@ -50,7 +50,7 @@
       <a href="https://medium.com/@tusharsingh_37238" target="_blank" rel="noopener">Medium</a>
     </div>
 
-    <div class="terminal" role="img" aria-label="Terminal showing: whoami, printing a short bio &#8212; shipping efficient, scalable data solutions with real-world impact to production, most recently as a Data Science Intern at Barton Malow, with 5+ years of experience in Data Engineering and Analytics across Oracle and Accenture, currently building deeper Data Science foundations at Penn State; then a CI-gated git workflow: branch, commit, pull request, passing CI check, and merge.">
+    <div class="terminal" role="img" aria-label="Terminal showing: whoami, printing a short bio &#8212; I ship efficient, scalable data solutions with real-world impact to production, most recently as a Data Science Intern at Barton Malow, with 5+ years of experience in Data Engineering and Analytics across Oracle and Accenture, currently building deeper Data Science foundations at Penn State; then a CI-gated git workflow: branch, commit, pull request, passing CI check, and merge.">
       <div class="terminal-bar">
         <span class="terminal-dot dot-red"></span>
         <span class="terminal-dot dot-yellow"></span>
@@ -388,46 +388,52 @@
           </div>
         </div>
 
-        <div class="case-diagram" role="img" aria-label="Pipeline diagram: 23 bronze and gold source tables feed a DQX rule engine running 211 checks, writing to a findings table, which drives a weekly digest email routed to record owners for resolution. A dashed line notes the engine runs as a soft-fail observer, never breaking the upstream job.">
-          <svg viewBox="0 0 720 210" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, monospace">
+        <div class="case-diagram" role="img" aria-label="Pipeline diagram: 23 bronze and gold source tables feed a DQX rule engine running 211 checks, writing to a findings table, which drives a weekly digest email with an AI-generated personalized section telling each owner what to fix, feeding a leadership dashboard and routing to record owners for resolution. A dashed line notes the engine runs as a soft-fail observer, never breaking the upstream job.">
+          <svg viewBox="0 0 836 210" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, monospace">
             <defs>
               <marker id="dqx-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
                 <path d="M0,0 L6,3 L0,6 Z" class="case-arrowhead"/>
               </marker>
             </defs>
 
-            <rect x="10" y="72" width="112" height="62" rx="6" class="case-node case-node-source"/>
-            <text x="66" y="98" class="case-node-title" text-anchor="middle">23 Tables</text>
-            <text x="66" y="114" class="case-node-sub" text-anchor="middle">bronze + gold</text>
+            <rect x="10" y="72" width="116" height="62" rx="6" class="case-node case-node-source"/>
+            <text x="68" y="98" class="case-node-title" text-anchor="middle">23 Tables</text>
+            <text x="68" y="114" class="case-node-sub" text-anchor="middle">bronze + gold</text>
 
-            <line x1="122" y1="103" x2="160" y2="103" class="case-edge" marker-end="url(#dqx-arrow)"/>
+            <line x1="126" y1="103" x2="150" y2="103" class="case-edge" marker-end="url(#dqx-arrow)"/>
 
-            <rect x="164" y="72" width="112" height="62" rx="6" class="case-node case-node-bronze"/>
-            <text x="220" y="98" class="case-node-title case-node-title-bronze" text-anchor="middle">Rule Engine</text>
-            <text x="220" y="114" class="case-node-sub" text-anchor="middle">211 checks</text>
+            <rect x="150" y="72" width="116" height="62" rx="6" class="case-node case-node-bronze"/>
+            <text x="208" y="98" class="case-node-title case-node-title-bronze" text-anchor="middle">Rule Engine</text>
+            <text x="208" y="114" class="case-node-sub" text-anchor="middle">211 checks</text>
 
-            <line x1="276" y1="103" x2="314" y2="103" class="case-edge" marker-end="url(#dqx-arrow)"/>
+            <line x1="266" y1="103" x2="290" y2="103" class="case-edge" marker-end="url(#dqx-arrow)"/>
 
-            <rect x="318" y="72" width="132" height="62" rx="6" class="case-node case-node-silver"/>
-            <text x="384" y="93" class="case-node-title case-node-title-silver" text-anchor="middle">Findings</text>
-            <text x="384" y="108" class="case-node-sub" text-anchor="middle">gold table,</text>
-            <text x="384" y="121" class="case-node-sub" text-anchor="middle">one row per issue</text>
+            <rect x="290" y="72" width="116" height="62" rx="6" class="case-node case-node-silver"/>
+            <text x="348" y="98" class="case-node-title case-node-title-silver" text-anchor="middle">Findings</text>
+            <text x="348" y="114" class="case-node-sub" text-anchor="middle">gold table</text>
 
-            <line x1="450" y1="103" x2="488" y2="103" class="case-edge" marker-end="url(#dqx-arrow)"/>
+            <line x1="406" y1="103" x2="430" y2="103" class="case-edge" marker-end="url(#dqx-arrow)"/>
 
-            <rect x="492" y="72" width="112" height="62" rx="6" class="case-node case-node-gold"/>
-            <text x="548" y="98" class="case-node-title case-node-title-gold" text-anchor="middle">Digest</text>
-            <text x="548" y="114" class="case-node-sub" text-anchor="middle">weekly email</text>
+            <rect x="430" y="72" width="116" height="62" rx="6" class="case-node case-node-gold"/>
+            <text x="488" y="93" class="case-node-title case-node-title-gold" text-anchor="middle">Digest</text>
+            <text x="488" y="108" class="case-node-sub" text-anchor="middle">weekly email</text>
+            <text x="488" y="121" class="case-node-sub" text-anchor="middle">AI-personalized</text>
 
-            <line x1="604" y1="103" x2="642" y2="103" class="case-edge" marker-end="url(#dqx-arrow)"/>
+            <line x1="546" y1="103" x2="570" y2="103" class="case-edge" marker-end="url(#dqx-arrow)"/>
 
-            <rect x="646" y="62" width="66" height="82" rx="6" class="case-node case-node-dashboard"/>
-            <text x="679" y="93" class="case-node-title case-node-title-dashboard" text-anchor="middle">Record</text>
-            <text x="679" y="107" class="case-node-title case-node-title-dashboard" text-anchor="middle">Owners</text>
-            <text x="679" y="122" class="case-node-sub" text-anchor="middle">resolve</text>
+            <rect x="570" y="72" width="116" height="62" rx="6" class="case-node case-node-dashboard"/>
+            <text x="628" y="98" class="case-node-title case-node-title-dashboard" text-anchor="middle">Dashboard</text>
+            <text x="628" y="114" class="case-node-sub" text-anchor="middle">leadership</text>
 
-            <line x1="220" y1="134" x2="220" y2="162" class="case-edge-dashed"/>
-            <text x="220" y="178" class="case-annotation" text-anchor="middle">soft-fail: writes a finding row, never breaks the job</text>
+            <line x1="686" y1="103" x2="710" y2="103" class="case-edge" marker-end="url(#dqx-arrow)"/>
+
+            <rect x="710" y="62" width="116" height="82" rx="6" class="case-node case-node-source"/>
+            <text x="768" y="93" class="case-node-title" text-anchor="middle">Record</text>
+            <text x="768" y="107" class="case-node-title" text-anchor="middle">Owners</text>
+            <text x="768" y="122" class="case-node-sub" text-anchor="middle">resolve</text>
+
+            <line x1="208" y1="134" x2="208" y2="162" class="case-edge-dashed"/>
+            <text x="208" y="178" class="case-annotation" text-anchor="middle">soft-fail: writes a finding row, never breaks the job</text>
           </svg>
         </div>
 
@@ -695,6 +701,6 @@
   <p>&copy; 2026 Tushar. Built with Databricks-grade rigor.</p>
 </footer>
 
-<script src="script.js?v=5" defer></script>
+<script src="script.js?v=6" defer></script>
 </body>
 </html>

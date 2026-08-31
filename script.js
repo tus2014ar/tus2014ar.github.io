@@ -211,7 +211,7 @@ if (termOut) {
     {
       cmd: '$ whoami',
       output: [
-        { t: 'Shipping efficient, scalable data solutions with real-world impact to' },
+        { t: 'I ship efficient, scalable data solutions with real-world impact to' },
         { t: 'production, most recently as a Data Science Intern at Barton Malow.' },
         { t: '5+ years of experience in Data Engineering and Analytics across Oracle' },
         { t: 'and Accenture, currently building deeper Data Science foundations at' },
