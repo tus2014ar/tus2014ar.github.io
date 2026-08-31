@@ -840,7 +840,29 @@ img, svg { max-width: 100%; display: block; }
   margin-bottom: 8px;
 }
 .case-title { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 10px; }
-.case-intro { font-size: 0.96rem; color: var(--text-dim); max-width: 640px; margin-bottom: 28px; }
+
+.case-pwh {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.case-pwh-item {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 4px);
+  padding: 16px 18px;
+}
+.case-pwh-item h4 {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+.case-pwh-item p { font-size: 0.86rem; color: var(--text-dim); }
 
 .case-diagram {
   background: var(--bg-alt);
