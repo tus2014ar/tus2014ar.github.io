@@ -99,6 +99,51 @@
     </div>
   </section>
 
+  <!-- ============ STORY ============ -->
+  <section id="story" class="section story-section">
+    <div class="section-inner">
+      <p class="section-eyebrow">How I Got Here</p>
+      <h2 class="section-title">Five years, one throughline</h2>
+      <p class="principles-lede">
+        Five years of watching production billing pipelines fail quietly set the direction. Every
+        stop since has been about building the tools that catch a failure before it becomes an
+        outage, not just cleaning up after one.
+      </p>
+
+      <div class="story-log">
+        <article class="story-commit">
+          <span class="commit-hash">7f3a2c1</span>
+          <span class="commit-meta">Accenture · Jun 2019 – Feb 2022</span>
+          <p class="commit-msg">fix: automate batch bill-run workflows, 1 day → 2 hours</p>
+          <p class="commit-detail">First real lesson in production data: a 4.5M-customer billing base doesn't forgive manual steps. Resolved 50+ recurring data quality issues and cut processing time 90×.</p>
+        </article>
+        <article class="story-commit">
+          <span class="commit-hash">c9e81b4</span>
+          <span class="commit-meta">Oracle Corporation · Feb 2022 – Dec 2024</span>
+          <p class="commit-msg">feat: validate telecom billing at scale, 600K+ subscribers</p>
+          <p class="commit-detail">Moved from fixing issues after the fact to designing the checks that catch them first — reconciliation reports and anomaly rules holding 98%+ accuracy within SLA. Earned "Best Upcoming Talent," FY23 Q3.</p>
+        </article>
+        <article class="story-commit">
+          <span class="commit-hash">a10d5e7</span>
+          <span class="commit-meta">Penn State Research · Sep 2025 – May 2026</span>
+          <p class="commit-msg">feat: forecasting + agentic auditing, 92% accuracy</p>
+          <p class="commit-detail">Went back to build the theory behind the practice: statistical modeling, and a first prototype of autonomous agents doing continuous compliance auditing.</p>
+        </article>
+        <article class="story-commit">
+          <span class="commit-hash">f42b901</span>
+          <span class="commit-meta">Barton Malow · May 2026 – Aug 2026</span>
+          <p class="commit-msg">feat: cost analytics + DQ framework shipped to production</p>
+          <p class="commit-detail">Where the two threads met: $142K in platform spend governed, 211 automated quality checks live across 23 tables in a $159B CRM pipeline.</p>
+        </article>
+      </div>
+
+      <div class="story-close">
+        The throughline: every role added a layer — fixing, then preventing, then modeling, then
+        governing. The Barton Malow work is what all four look like combined into one pipeline.
+      </div>
+    </div>
+  </section>
+
   <!-- ============ ENGINEERING PRINCIPLES ============ -->
   <section id="principles" class="section principles-section">
     <div class="section-inner">
@@ -115,11 +160,13 @@
           <span class="principle-mark">01</span>
           <h4>Never breaks the upstream job</h4>
           <p>Every data quality and cost pipeline I've shipped runs as a soft-fail observer: a failing check writes a finding row, it never raises and kills the parent job. A DQ failure is a data observation, not a pipeline outage.</p>
+          <a href="#projects" class="project-link principle-link">→ see it in Cost Analytics</a>
         </article>
         <article class="principle-card">
           <span class="principle-mark">02</span>
           <h4>Idempotent by design</h4>
           <p>Every gold table load pairs with a post-write uniqueness check that runs on <em>every</em> execution, not just at build time, so reruns, backfills, and late-arriving data can't silently create duplicate rows.</p>
+          <a href="#projects" class="project-link principle-link">→ see it in Cost Analytics</a>
         </article>
         <article class="principle-card">
           <span class="principle-mark">03</span>
@@ -336,6 +383,69 @@
           </article>
 
         </div>
+      </div>
+
+      <div class="case-study">
+        <p class="case-eyebrow">Deep Dive · Barton Malow, 2026</p>
+        <h3 class="case-title">One pipeline, how it actually works</h3>
+        <p class="case-intro">The project card above tells you what shipped. This is how the Cost Analytics pipeline is built underneath.</p>
+
+        <div class="case-diagram" role="img" aria-label="Pipeline diagram: Unity Catalog system tables flow into a Bronze layer of raw billing events, then a Silver layer resolving ownership across 933 resources, then an idempotent Gold layer, feeding a 4-tab leadership dashboard. A dashed line notes a post-write uniqueness check running on every execution.">
+          <svg viewBox="0 0 720 210" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, monospace">
+            <defs>
+              <marker id="case-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L6,3 L0,6 Z" class="case-arrowhead"/>
+              </marker>
+            </defs>
+
+            <rect x="10" y="72" width="112" height="62" rx="6" class="case-node case-node-source"/>
+            <text x="66" y="98" class="case-node-title" text-anchor="middle">Unity Catalog</text>
+            <text x="66" y="114" class="case-node-sub" text-anchor="middle">system tables</text>
+
+            <line x1="122" y1="103" x2="160" y2="103" class="case-edge" marker-end="url(#case-arrow)"/>
+
+            <rect x="164" y="72" width="112" height="62" rx="6" class="case-node case-node-bronze"/>
+            <text x="220" y="98" class="case-node-title case-node-title-bronze" text-anchor="middle">Bronze</text>
+            <text x="220" y="114" class="case-node-sub" text-anchor="middle">raw billing events</text>
+
+            <line x1="276" y1="103" x2="314" y2="103" class="case-edge" marker-end="url(#case-arrow)"/>
+
+            <rect x="318" y="72" width="132" height="62" rx="6" class="case-node case-node-silver"/>
+            <text x="384" y="93" class="case-node-title case-node-title-silver" text-anchor="middle">Silver</text>
+            <text x="384" y="108" class="case-node-sub" text-anchor="middle">933 resources,</text>
+            <text x="384" y="121" class="case-node-sub" text-anchor="middle">ownership resolved</text>
+
+            <line x1="450" y1="103" x2="488" y2="103" class="case-edge" marker-end="url(#case-arrow)"/>
+
+            <rect x="492" y="72" width="112" height="62" rx="6" class="case-node case-node-gold"/>
+            <text x="548" y="98" class="case-node-title case-node-title-gold" text-anchor="middle">Gold</text>
+            <text x="548" y="114" class="case-node-sub" text-anchor="middle">idempotent load</text>
+
+            <line x1="604" y1="103" x2="642" y2="103" class="case-edge" marker-end="url(#case-arrow)"/>
+
+            <rect x="646" y="62" width="66" height="82" rx="6" class="case-node case-node-dashboard"/>
+            <text x="679" y="93" class="case-node-title case-node-title-dashboard" text-anchor="middle">4-tab</text>
+            <text x="679" y="107" class="case-node-title case-node-title-dashboard" text-anchor="middle">dashboard</text>
+            <text x="679" y="122" class="case-node-sub" text-anchor="middle">leadership</text>
+
+            <line x1="384" y1="134" x2="384" y2="162" class="case-edge-dashed"/>
+            <text x="384" y="178" class="case-annotation" text-anchor="middle">post-write uniqueness check, every run</text>
+          </svg>
+        </div>
+
+        <div class="case-results">
+          <div class="case-result"><span class="case-result-num case-result-gold">$142K</span><span class="case-result-label">lifetime spend surfaced</span></div>
+          <div class="case-result"><span class="case-result-num case-result-bronze">$13.2K</span><span class="case-result-label">idle cost, 885 unused objects</span></div>
+          <div class="case-result"><span class="case-result-num case-result-silver">85.6% → 54%</span><span class="case-result-label">unowned spend, after resolution</span></div>
+          <div class="case-result"><span class="case-result-num case-result-gold">5.5×</span><span class="case-result-label">AI's share of warehouse spend grew in 5 months</span></div>
+          <div class="case-result"><span class="case-result-num case-result-bronze">2×</span><span class="case-result-label">measurement error caught before it shipped</span></div>
+        </div>
+
+        <p class="case-principle-link">
+          This is where <a href="#principles" class="project-link">principles 01 (soft-fail) and 02 (idempotent)</a>
+          aren't abstractions: the gold table load pairs with a uniqueness check on every execution, and a failing DQ
+          rule anywhere upstream writes a finding row instead of killing the job.
+        </p>
       </div>
     </div>
   </section>
