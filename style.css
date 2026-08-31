@@ -957,6 +957,78 @@ img, svg { max-width: 100%; display: block; }
 .trend-dot-end { fill: var(--gold); stroke: var(--bg-alt); stroke-width: 2; }
 .trend-label { fill: var(--text); font-size: 13px; font-weight: 700; }
 
+.monitor-widget { grid-column: span 2; }
+@media (max-width: 640px) { .monitor-widget { grid-column: span 1; } }
+
+.monitor-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.monitor-label {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--text-faint);
+}
+.monitor-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent-2);
+  background: color-mix(in srgb, var(--accent-2) 14%, transparent);
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.monitor-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-2);
+  animation: monitor-pulse 1.8s ease-in-out infinite;
+}
+@keyframes monitor-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+@media (prefers-reduced-motion: reduce) { .monitor-dot { animation: none; } }
+
+.monitor-wave { width: 100%; height: auto; display: block; }
+.monitor-baseline { stroke: var(--border); stroke-width: 1; stroke-dasharray: 3,3; }
+.monitor-area { fill: var(--gold); opacity: 0.1; }
+.monitor-line { stroke: var(--gold); stroke-width: 2; fill: none; }
+.monitor-live-dot {
+  fill: var(--gold);
+  stroke: var(--bg-alt);
+  stroke-width: 2;
+  animation: monitor-pulse 1.8s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) { .monitor-live-dot { animation: none; } }
+
+.monitor-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--text-faint);
+  margin-top: 10px;
+}
+.monitor-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--accent-2);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
 /* ============ RESEARCH ============ */
 .research-grid {
   display: grid;
