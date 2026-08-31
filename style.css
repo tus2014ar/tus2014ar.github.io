@@ -235,14 +235,6 @@ img, svg { max-width: 100%; display: block; }
 }
 .hero-role .sep { color: var(--text-faint); margin: 0 4px; }
 
-.hero-sub {
-  font-size: 1.08rem;
-  color: var(--text-dim);
-  max-width: 620px;
-  margin: 0 auto 36px;
-}
-.hero-sub strong { color: var(--text); }
-
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
