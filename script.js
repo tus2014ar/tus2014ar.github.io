@@ -50,6 +50,7 @@ if (navCurrent) {
   const linkAlphaMax = isDark ? 0.35 : 0.22;
   const LINK_DIST = 140;
   const SPEED = 0.18;
+  const INTERACT_RADIUS = 220;
 
   let w = 0, h = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
   let particles = [];
@@ -82,15 +83,17 @@ if (navCurrent) {
       if (p.x < 0 || p.x > w) p.vx *= -1;
       if (p.y < 0 || p.y > h) p.vy *= -1;
 
-      // gentle pull toward the cursor for a "network reacting to you" feel
+      // Pull toward the cursor, stronger the closer a particle is, so the
+      // network visibly reaches toward the pointer instead of a flat nudge.
       const dx = mouse.x - p.x, dy = mouse.y - p.y;
       const dist = Math.hypot(dx, dy);
-      if (dist < 160) {
-        p.vx += (dx / dist) * 0.0025;
-        p.vy += (dy / dist) * 0.0025;
+      if (dist < INTERACT_RADIUS && dist > 0.01) {
+        const pull = (1 - dist / INTERACT_RADIUS) * 0.02;
+        p.vx += (dx / dist) * pull;
+        p.vy += (dy / dist) * pull;
       }
       const speed = Math.hypot(p.vx, p.vy);
-      const maxSpeed = SPEED * 2.2;
+      const maxSpeed = SPEED * 2.6;
       if (speed > maxSpeed) { p.vx = (p.vx / speed) * maxSpeed; p.vy = (p.vy / speed) * maxSpeed; }
     }
 
