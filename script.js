@@ -306,6 +306,73 @@ if (termOut) {
   }
 }
 
+// ============ DQX live monitor: scrolling telemetry waveform ============
+// The static polyline/polygon already in the HTML is a real, complete
+// waveform on its own — if this script never runs (or reduced-motion is
+// set), the widget just stays on that static shape. This only makes it
+// scroll like a live feed on top of that baseline.
+(function initMonitorWave() {
+  const line = document.querySelector('.monitor-line');
+  const area = document.querySelector('.monitor-area');
+  const head = document.querySelector('.monitor-live-dot');
+  if (!line || !area || !head || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const initial = line.getAttribute('points').trim().split(/\s+/).map((p) => {
+    const [, y] = p.split(',');
+    return parseFloat(y);
+  });
+  const points = initial.slice();
+  const N = points.length;
+  const W = 300, H = 100;
+  const STEP = W / (N - 1);
+  const BASELINE = 76, SPIKE_TOP = 32;
+
+  let target = BASELINE;
+  let ticksToNewTarget = 0;
+
+  function nextValue(prev) {
+    if (ticksToNewTarget <= 0) {
+      target = Math.random() < 0.22 ? SPIKE_TOP + Math.random() * 18 : BASELINE - Math.random() * 6;
+      ticksToNewTarget = 3 + Math.floor(Math.random() * 4);
+    }
+    ticksToNewTarget--;
+    const next = prev + (target - prev) * 0.35 + (Math.random() - 0.5) * 3;
+    return Math.max(SPIKE_TOP, Math.min(BASELINE + 4, next));
+  }
+
+  function render() {
+    const linePts = points.map((y, i) => `${(i * STEP).toFixed(1)},${y.toFixed(1)}`).join(' ');
+    line.setAttribute('points', linePts);
+    area.setAttribute('points', `0,${H} ${linePts} ${W},${H}`);
+    head.setAttribute('cx', ((N - 1) * STEP).toFixed(1));
+    head.setAttribute('cy', points[N - 1].toFixed(1));
+  }
+
+  let intervalId = null;
+  function tick() {
+    points.shift();
+    points.push(nextValue(points[points.length - 1]));
+    render();
+  }
+
+  const wave = document.querySelector('.monitor-wave');
+  if ('IntersectionObserver' in window) {
+    const waveObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !intervalId) {
+          intervalId = setInterval(tick, 550);
+        } else if (!entry.isIntersecting && intervalId) {
+          clearInterval(intervalId);
+          intervalId = null;
+        }
+      });
+    }, { threshold: 0.2 });
+    waveObserver.observe(wave);
+  } else {
+    intervalId = setInterval(tick, 550);
+  }
+})();
+
 // ============ Project tabs ============
 // The default-active tab's cards carry class="show" directly in the HTML,
 // so they're visible even if this script never runs; only switching tabs
