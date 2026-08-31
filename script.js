@@ -247,10 +247,10 @@ if (termOut) {
     },
   ];
 
-  const TYPE_MS = 34;
-  const LINE_PAUSE_MS = 260;
-  const STEP_PAUSE_MS = 450;
-  const LOOP_PAUSE_MS = 3200;
+  const TYPE_MS = 52;
+  const LINE_PAUSE_MS = 400;
+  const STEP_PAUSE_MS = 700;
+  const LOOP_PAUSE_MS = 4200;
 
   let cancelled = false;
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
