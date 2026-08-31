@@ -9,6 +9,9 @@
   --accent: #2563eb;
   --accent-dim: #dbe6fd;
   --accent-2: #0d9488;
+  --bronze: #a15c2e;
+  --silver: #6b7280;
+  --gold: #b8860b;
   --mono: 'JetBrains Mono', ui-monospace, monospace;
   --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --radius: 14px;
@@ -28,6 +31,9 @@
     --accent: #5b8cff;
     --accent-dim: #16213d;
     --accent-2: #2dd4bf;
+    --bronze: #cd7f32;
+    --silver: #b8c0c8;
+    --gold: #e8b339;
     --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px -14px rgba(0,0,0,.55);
   }
 }
@@ -436,6 +442,74 @@ img, svg { max-width: 100%; display: block; }
   margin-bottom: 56px;
 }
 
+/* ============ STORY ============ */
+.story-section { padding-bottom: 88px; }
+
+.story-log {
+  position: relative;
+  padding-left: 30px;
+  margin-top: 8px;
+}
+.story-log::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: var(--border);
+}
+
+.story-commit {
+  position: relative;
+  padding-bottom: 32px;
+}
+.story-commit:last-child { padding-bottom: 0; }
+.story-commit::before {
+  content: "";
+  position: absolute;
+  left: -30px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+}
+
+.commit-hash {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-2);
+}
+.commit-meta {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--text-faint);
+  margin-left: 10px;
+}
+.commit-msg {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 8px 0 6px;
+}
+.commit-detail {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+}
+
+.story-close {
+  margin-top: 8px;
+  padding: 18px 22px;
+  background: var(--surface);
+  border-left: 3px solid var(--accent-2);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  color: var(--text-dim);
+  font-size: 0.94rem;
+}
+
 /* ============ ENGINEERING PRINCIPLES ============ */
 .principles-section { padding-bottom: 88px; }
 
@@ -476,6 +550,7 @@ img, svg { max-width: 100%; display: block; }
 
 .principle-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
 .principle-card p { font-size: 0.88rem; color: var(--text-dim); }
+.principle-card .principle-link { display: inline-block; margin-top: 12px; }
 
 /* ============ EXPERIENCE / TIMELINE ============ */
 .timeline {
@@ -712,6 +787,82 @@ img, svg { max-width: 100%; display: block; }
 .project-link { font-size: 0.87rem; font-weight: 700; color: var(--accent); }
 .project-link:hover { text-decoration: underline; }
 
+/* ============ CASE STUDY ============ */
+.case-study {
+  margin-top: 56px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px;
+}
+@media (max-width: 640px) { .case-study { padding: 22px; } }
+
+.case-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-faint);
+  margin-bottom: 8px;
+}
+.case-title { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 10px; }
+.case-intro { font-size: 0.96rem; color: var(--text-dim); max-width: 640px; margin-bottom: 28px; }
+
+.case-diagram {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 4px);
+  padding: 20px 14px;
+  margin-bottom: 28px;
+  overflow-x: auto;
+}
+.case-diagram svg { width: 100%; height: auto; min-width: 560px; display: block; }
+
+.case-node { fill: var(--surface); stroke: var(--border); stroke-width: 1.2; }
+.case-node-bronze { stroke: var(--bronze); }
+.case-node-silver { stroke: var(--silver); }
+.case-node-gold { stroke: var(--gold); }
+.case-node-dashboard { stroke: var(--accent-2); }
+
+.case-node-title { fill: var(--text); font-size: 11px; font-weight: 700; }
+.case-node-title-bronze { fill: var(--bronze); }
+.case-node-title-silver { fill: var(--silver); }
+.case-node-title-gold { fill: var(--gold); }
+.case-node-title-dashboard { fill: var(--accent-2); }
+.case-node-sub { fill: var(--text-faint); font-size: 9.5px; }
+
+.case-edge { stroke: var(--text-faint); stroke-width: 1.5; }
+.case-arrowhead { fill: var(--text-faint); }
+.case-edge-dashed { stroke: var(--text-faint); stroke-width: 1; stroke-dasharray: 3,3; }
+.case-annotation { fill: var(--text-faint); font-size: 9.5px; }
+
+.case-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+  margin-bottom: 26px;
+}
+.case-result {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 4px);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.case-result-num { font-family: var(--mono); font-weight: 700; font-size: 1.15rem; }
+.case-result-bronze { color: var(--bronze); }
+.case-result-silver { color: var(--silver); }
+.case-result-gold { color: var(--gold); }
+.case-result-label { font-size: 0.76rem; color: var(--text-faint); }
+
+.case-principle-link {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+}
+
 /* ============ RESEARCH ============ */
 .research-grid {
   display: grid;
@@ -856,7 +1007,7 @@ img, svg { max-width: 100%; display: block; }
    default in every rule above. Nothing is ever hidden by default. */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    .job, .research-card, .skill-group, .edu-card, .principle-card {
+    .job, .research-card, .skill-group, .edu-card, .principle-card, .story-commit, .case-study {
       animation: reveal-up linear both;
       animation-timeline: view();
       animation-range: entry 0% cover 30%;
