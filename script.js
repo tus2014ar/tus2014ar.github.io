@@ -10,6 +10,26 @@ navLinks.querySelectorAll('a').forEach((link) => {
   link.addEventListener('click', () => navLinks.classList.remove('open'));
 });
 
+// ============ Nav breadcrumb: current section indicator ============
+// Purely decorative — if this never runs, the nav logo just stays on
+// its default "home" text; nothing else depends on it.
+const navCurrent = document.getElementById('navCurrent');
+if (navCurrent) {
+  const sections = document.querySelectorAll('#top, main > section');
+  window.addEventListener(
+    'scroll',
+    () => {
+      let current = 'home';
+      sections.forEach((sec) => {
+        const rect = sec.getBoundingClientRect();
+        if (rect.top < 120) current = sec.id === 'top' ? 'home' : sec.id;
+      });
+      navCurrent.textContent = current;
+    },
+    { passive: true }
+  );
+}
+
 // ============ Neural-network particle background (hero) ============
 // Hand-rolled, zero-dependency canvas animation — no CDN library involved,
 // so there's nothing that can silently fail to load or fail to render.
