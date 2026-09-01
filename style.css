@@ -617,6 +617,23 @@ img, svg { max-width: 100%; display: block; }
   margin-bottom: 18px;
 }
 
+.job-title-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.job-logo {
+  width: 44px;
+  height: 44px;
+  padding: 7px;
+  border-radius: 10px;
+  background: #f1f2f4;
+  border: 1px solid var(--border);
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .job-role { font-size: 1.2rem; font-weight: 700; margin-bottom: 4px; }
 .job-company {
   font-size: 0.95rem;
