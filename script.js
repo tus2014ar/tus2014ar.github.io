@@ -217,7 +217,7 @@ if (termOut) {
         { t: 'I ship efficient, scalable data solutions with real-world impact to' },
         { t: 'production, most recently as a Data Science Intern at Barton Malow.' },
         { t: '5+ years of experience in Data Engineering and Analytics across Oracle' },
-        { t: 'and Accenture, currently building deeper Data Science foundations at' },
+        { t: 'and Accenture, currently deepening my data engineering foundations at' },
         { t: 'Penn State.' },
       ],
     },
@@ -375,21 +375,6 @@ if (termOut) {
     intervalId = setInterval(tick, 550);
   }
 })();
-
-// ============ Project tabs ============
-// The default-active tab's cards carry class="show" directly in the HTML,
-// so they're visible even if this script never runs; only switching tabs
-// requires JS.
-document.querySelectorAll('.tab').forEach((tab) => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.tab').forEach((t) => t.classList.remove('active'));
-    tab.classList.add('active');
-    const cat = tab.dataset.cat;
-    document.querySelectorAll('.project-card').forEach((card) => {
-      card.classList.toggle('show', card.dataset.cat === cat);
-    });
-  });
-});
 
 // ============ Magnetic tilt on project cards ============
 // Decorative transform only — cards are fully visible and readable with or
