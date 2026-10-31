@@ -1208,3 +1208,65 @@ img, svg { max-width: 100%; display: block; }
     }
   }
 }
+
+/* ============ OA FLAGSHIP (data engineering): plain-language visuals and business impact ============ */
+.oa-plain {
+  font-size: 1rem;
+  color: var(--text-dim);
+  border-left: 3px solid var(--accent);
+  padding: 4px 0 4px 16px;
+  margin-bottom: 26px;
+}
+.oa-plain strong { color: var(--text); }
+.oa-subhead {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 4px 0 14px;
+}
+.oa-axis { stroke: var(--border); stroke-width: 1.5; }
+.oa-year { fill: var(--text); font-size: 12px; font-weight: 700; }
+.oa-val { fill: var(--text); font-size: 12px; font-weight: 700; }
+.oa-legend { fill: var(--text-dim); font-size: 10px; }
+.oa-bar-sales { fill: var(--accent-2); }
+.oa-bar-visits { fill: var(--bronze); }
+.oa-seg-text { fill: var(--surface); font-size: 13px; font-weight: 700; }
+.oa-stale-fill { fill: var(--bronze); }
+.oa-threshold { stroke: var(--gold); stroke-width: 2.5; }
+.oa-eq { fill: var(--text); font-size: 26px; font-weight: 700; }
+.oa-step-dot { fill: var(--surface); stroke: var(--accent); stroke-width: 2; }
+.oa-step-dot-final { stroke: var(--gold); fill: var(--bg-alt); }
+.oa-step-num { fill: var(--text); font-size: 13px; font-weight: 700; }
+.oa-takeaway {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-top: 10px;
+}
+.oa-takeaway-wide { margin: -10px 0 26px; font-size: 0.86rem; }
+
+.oa-impact {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.oa-impact-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent-2);
+  border-radius: calc(var(--radius) - 4px);
+  padding: 16px 18px;
+}
+.oa-impact-mark {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-2);
+}
+.oa-impact-item h5 { font-size: 0.92rem; margin: 6px 0 8px; color: var(--text); }
+.oa-impact-item p { font-size: 0.82rem; color: var(--text-dim); }
+.oa-status {
+  font-size: 0.8rem;
+  color: var(--text-faint);
+  margin-bottom: 24px;
+}

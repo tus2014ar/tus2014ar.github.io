@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=17">
+<link rel="stylesheet" href="style.css?v=18">
 </head>
 <body>
 
@@ -339,6 +339,23 @@
           <a href="https://github.com/tus2014ar/databricks-cost-analytics" target="_blank" rel="noopener" class="project-link">View repo →</a>
         </article>
 
+        <article class="project-card project-card-flagship">
+          <div class="project-stats">
+            <div><strong>171</strong><span>public files loaded</span></div>
+            <div><strong>38</strong><span>reconciliation checks</span></div>
+            <div><strong>~900</strong><span>automated tests</span></div>
+          </div>
+          <h4>Osteoarthritis Market Share Forecasting Pipeline</h4>
+          <p>Data engineering flagship project. A re-runnable Bronze/Silver/Gold pipeline that turns IQVIA Excel extracts and 171 public files (about 24 GB) into one audited star-schema warehouse, with an eight-stage publish that never replaces the last good database.</p>
+          <div class="project-prod-signals">
+            <span>Atomic publish: a failed run leaves good data untouched</span>
+            <span>Run twice, identical content: tested end to end</span>
+          </div>
+          <div class="project-tags"><span>Python</span><span>SQLite</span><span>Pandera</span><span>GitHub Actions</span><span>Docker</span></div>
+          <a href="#oa-pipeline-deep-dive" class="project-link">See how it works →</a>
+          <a href="https://github.com/tus2014ar/oa-market-intelligence-system" target="_blank" rel="noopener" class="project-link">View repo →</a>
+        </article>
+
         <article class="project-card">
           <h4>Scholar Swipe: Scholarship Scraper</h4>
           <p>Automated scraping pipeline extracting scholarship listings into a centralized PostgreSQL (Supabase) database, with upsert-based dedup and automated summarization.</p>
@@ -553,6 +570,229 @@
           rule anywhere upstream writes a finding row instead of killing the job.
         </p>
       </div>
+      <div class="case-study" id="oa-pipeline-deep-dive">
+        <p class="case-eyebrow">Deep Dive · Data Engineering Flagship Project, 2026</p>
+        <h3 class="case-title">Osteoarthritis Market Share Forecasting Pipeline</h3>
+        <p class="oa-plain"><strong>In plain English:</strong> a drug company wanted to know whether its osteoarthritis injection was losing doctor visits. The raw data was scattered across Excel files and 171 public datasets. I built the pipeline that turns all of it into one checked, repeatable database, and that tells you when it cannot be trusted.</p>
+
+        <div class="case-pwh">
+          <div class="case-pwh-item">
+            <h4>Problem</h4>
+            <p>Market data arrived as four nested Excel extracts (72 months, 160 products, 7.19M+ visits) plus 171 public files from CMS, CDC, SEC and FDA (about 24 GB). Nothing was joined, checked or repeatable.</p>
+          </div>
+          <div class="case-pwh-item">
+            <h4>Why</h4>
+            <p>A forecast is only as good as its data. If nobody can trace a number, rebuild it, or tell when it silently changed, nobody can trust the conclusions built on top of it.</p>
+          </div>
+          <div class="case-pwh-item">
+            <h4>How</h4>
+            <p>A re-runnable Bronze to Silver to Gold pipeline into a star schema, a Pandera validation gate, 11 quality checks against a stored baseline, a SHA-256 audit of every extract, a golden regression test, and an eight-stage publish that swaps the finished database in atomically.</p>
+          </div>
+        </div>
+
+        <div class="case-diagram" role="img" aria-label="Pipeline diagram: raw Excel extracts and 171 public files flow into Bronze, an untouched and hashed copy, then Silver, a cleaned star schema, then Gold, ready-to-use tables, then an atomic publish step, producing findings. A dashed line notes a failed run keeps the last good database.">
+          <svg viewBox="0 0 836 210" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, monospace">
+            <defs>
+              <marker id="oa-de-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L6,3 L0,6 Z" class="case-arrowhead"/>
+              </marker>
+            </defs>
+
+            <rect x="10" y="72" width="116" height="62" rx="6" class="case-node case-node-source"/>
+            <text x="68" y="98" class="case-node-title" text-anchor="middle">Raw Files</text>
+            <text x="68" y="114" class="case-node-sub" text-anchor="middle">Excel + 171 files</text>
+
+            <line x1="126" y1="103" x2="150" y2="103" class="case-edge" marker-end="url(#oa-de-arrow)"/>
+
+            <rect x="150" y="72" width="116" height="62" rx="6" class="case-node case-node-bronze"/>
+            <text x="208" y="98" class="case-node-title case-node-title-bronze" text-anchor="middle">Bronze</text>
+            <text x="208" y="114" class="case-node-sub" text-anchor="middle">untouched, hashed</text>
+
+            <line x1="266" y1="103" x2="290" y2="103" class="case-edge" marker-end="url(#oa-de-arrow)"/>
+
+            <rect x="290" y="72" width="116" height="62" rx="6" class="case-node case-node-silver"/>
+            <text x="348" y="98" class="case-node-title case-node-title-silver" text-anchor="middle">Silver</text>
+            <text x="348" y="114" class="case-node-sub" text-anchor="middle">star schema</text>
+
+            <line x1="406" y1="103" x2="430" y2="103" class="case-edge" marker-end="url(#oa-de-arrow)"/>
+
+            <rect x="430" y="72" width="116" height="62" rx="6" class="case-node case-node-gold"/>
+            <text x="488" y="98" class="case-node-title case-node-title-gold" text-anchor="middle">Gold</text>
+            <text x="488" y="114" class="case-node-sub" text-anchor="middle">ready-to-use</text>
+
+            <line x1="546" y1="103" x2="570" y2="103" class="case-edge" marker-end="url(#oa-de-arrow)"/>
+
+            <rect x="570" y="72" width="116" height="62" rx="6" class="case-node case-node-dashboard"/>
+            <text x="628" y="98" class="case-node-title case-node-title-dashboard" text-anchor="middle">Publish</text>
+            <text x="628" y="114" class="case-node-sub" text-anchor="middle">atomic swap</text>
+
+            <line x1="686" y1="103" x2="710" y2="103" class="case-edge" marker-end="url(#oa-de-arrow)"/>
+
+            <rect x="710" y="72" width="116" height="62" rx="6" class="case-node case-node-source"/>
+            <text x="768" y="98" class="case-node-title" text-anchor="middle">Findings</text>
+            <text x="768" y="114" class="case-node-sub" text-anchor="middle">17 findings</text>
+
+            <line x1="628" y1="134" x2="628" y2="162" class="case-edge-dashed"/>
+            <text x="628" y="178" class="case-annotation" text-anchor="middle">a failed run keeps the last good database</text>
+          </svg>
+        </div>
+
+        <h4 class="oa-subhead">The warehouse in one picture</h4>
+        <div class="case-diagram" role="img" aria-label="Star schema diagram: a central table of doctor visits with about 149 thousand rows, connected to four lookup tables: month with 72 months, product with 160 products, specialty with 50 specialties, and demographics with 27 groups.">
+          <svg viewBox="0 0 560 250" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, monospace">
+            <line x1="280" y1="56" x2="280" y2="97" class="case-edge"/>
+            <line x1="280" y1="157" x2="280" y2="194" class="case-edge"/>
+            <line x1="150" y1="127" x2="205" y2="127" class="case-edge"/>
+            <line x1="355" y1="127" x2="410" y2="127" class="case-edge"/>
+
+            <rect x="205" y="97" width="150" height="60" rx="6" class="case-node case-node-gold"/>
+            <text x="280" y="123" class="case-node-title case-node-title-gold" text-anchor="middle">Visits</text>
+            <text x="280" y="139" class="case-node-sub" text-anchor="middle">149K+ rows (fact)</text>
+
+            <rect x="205" y="10" width="150" height="46" rx="6" class="case-node case-node-silver"/>
+            <text x="280" y="30" class="case-node-title case-node-title-silver" text-anchor="middle">Month</text>
+            <text x="280" y="45" class="case-node-sub" text-anchor="middle">72 months</text>
+
+            <rect x="205" y="194" width="150" height="46" rx="6" class="case-node case-node-silver"/>
+            <text x="280" y="214" class="case-node-title case-node-title-silver" text-anchor="middle">Demographics</text>
+            <text x="280" y="229" class="case-node-sub" text-anchor="middle">27 groups</text>
+
+            <rect x="10" y="102" width="140" height="50" rx="6" class="case-node case-node-silver"/>
+            <text x="80" y="124" class="case-node-title case-node-title-silver" text-anchor="middle">Product</text>
+            <text x="80" y="140" class="case-node-sub" text-anchor="middle">160 products</text>
+
+            <rect x="410" y="102" width="140" height="50" rx="6" class="case-node case-node-silver"/>
+            <text x="480" y="124" class="case-node-title case-node-title-silver" text-anchor="middle">Specialty</text>
+            <text x="480" y="140" class="case-node-sub" text-anchor="middle">50 specialties</text>
+          </svg>
+        </div>
+        <p class="oa-takeaway oa-takeaway-wide">One central table of visits, surrounded by lookup lists. Anyone can slice the numbers by month, product, specialty or patient group without re-cleaning anything.</p>
+
+        <h4 class="oa-subhead">The safety net: an eight-stage publish</h4>
+        <div class="case-diagram" role="img" aria-label="Eight-stage publish diagram: public-data check, warehouse build, coverage check, feature tables, model tables, monthly scoring, monitoring, then an atomic swap. Stages two to seven build in a staging copy, and only stage eight replaces the published database, so any failure leaves the last good one untouched.">
+          <svg viewBox="0 0 836 170" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, monospace">
+            <line x1="60" y1="40" x2="760" y2="40" class="case-edge"/>
+            <circle cx="60" cy="40" r="18" class="oa-step-dot"/>
+            <text x="60" y="45" class="oa-step-num" text-anchor="middle">1</text>
+            <text x="60" y="80" class="case-node-sub" text-anchor="middle">Public data</text>
+            <circle cx="160" cy="40" r="18" class="oa-step-dot"/>
+            <text x="160" y="45" class="oa-step-num" text-anchor="middle">2</text>
+            <text x="160" y="80" class="case-node-sub" text-anchor="middle">Warehouse</text>
+            <circle cx="260" cy="40" r="18" class="oa-step-dot"/>
+            <text x="260" y="45" class="oa-step-num" text-anchor="middle">3</text>
+            <text x="260" y="80" class="case-node-sub" text-anchor="middle">Coverage check</text>
+            <circle cx="360" cy="40" r="18" class="oa-step-dot"/>
+            <text x="360" y="45" class="oa-step-num" text-anchor="middle">4</text>
+            <text x="360" y="80" class="case-node-sub" text-anchor="middle">Feature tables</text>
+            <circle cx="460" cy="40" r="18" class="oa-step-dot"/>
+            <text x="460" y="45" class="oa-step-num" text-anchor="middle">5</text>
+            <text x="460" y="80" class="case-node-sub" text-anchor="middle">Model tables</text>
+            <circle cx="560" cy="40" r="18" class="oa-step-dot"/>
+            <text x="560" y="45" class="oa-step-num" text-anchor="middle">6</text>
+            <text x="560" y="80" class="case-node-sub" text-anchor="middle">Monthly scoring</text>
+            <circle cx="660" cy="40" r="18" class="oa-step-dot"/>
+            <text x="660" y="45" class="oa-step-num" text-anchor="middle">7</text>
+            <text x="660" y="80" class="case-node-sub" text-anchor="middle">Monitoring</text>
+            <circle cx="760" cy="40" r="18" class="oa-step-dot oa-step-dot-final"/>
+            <text x="760" y="45" class="oa-step-num" text-anchor="middle">8</text>
+            <text x="760" y="80" class="case-node-sub" text-anchor="middle">Atomic swap</text>
+            <line x1="160" y1="104" x2="660" y2="104" class="case-edge-dashed"/>
+            <line x1="160" y1="98" x2="160" y2="110" class="case-edge-dashed"/>
+            <line x1="660" y1="98" x2="660" y2="110" class="case-edge-dashed"/>
+            <text x="410" y="124" class="case-annotation" text-anchor="middle">stages 2 to 7 build in a staging copy</text>
+            <text x="418" y="156" class="case-annotation" text-anchor="middle">only stage 8 replaces the published database, so any failure leaves the last good one exactly as it was</text>
+          </svg>
+        </div>
+
+        <div class="case-widgets">
+          <div class="case-widget">
+            <p class="case-widget-label">1. Run it twice, get the same answer</p>
+            <svg viewBox="0 0 260 78" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, monospace" role="img" aria-label="Two boxes, Run 1 and Run 2, joined by an equals sign: the same extracts run twice give identical content.">
+              <rect x="0" y="12" width="96" height="38" rx="6" class="case-node case-node-bronze"/>
+              <text x="48" y="36" class="oa-year" text-anchor="middle">Run 1</text>
+              <text x="130" y="38" class="oa-eq" text-anchor="middle">=</text>
+              <rect x="164" y="12" width="96" height="38" rx="6" class="case-node case-node-bronze"/>
+              <text x="212" y="36" class="oa-year" text-anchor="middle">Run 2</text>
+              <text x="0" y="70" class="oa-legend">same extracts, identical content</text>
+            </svg>
+            <p class="oa-takeaway">An end-to-end test runs the real extracts through every stage twice and fails if anything differs.</p>
+          </div>
+
+          <div class="case-widget">
+            <p class="case-widget-label">2. The system flags old data</p>
+            <svg viewBox="0 0 260 78" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, monospace" role="img" aria-label="Bar showing the data was 454 days old at the last run, far past the 100-day line at which monitoring marks data as stale.">
+              <text x="0" y="12" class="oa-year">Data age at last run</text>
+              <rect x="0" y="22" width="260" height="28" rx="6" class="meter-track"/>
+              <rect x="0" y="22" width="236" height="28" rx="6" class="oa-stale-fill"/>
+              <line x1="52" y1="18" x2="52" y2="54" class="oa-threshold"/>
+              <text x="64" y="41" class="oa-seg-text">454 days</text>
+              <text x="0" y="70" class="oa-legend">gold line = stale after 100 days</text>
+            </svg>
+            <p class="oa-takeaway">Monitoring says so out loud instead of quietly forecasting from old numbers.</p>
+          </div>
+
+          <div class="case-widget">
+            <p class="case-widget-label">3. Joining sources exposed a contradiction</p>
+            <svg viewBox="0 0 260 172" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, monospace" role="img" aria-label="Bar chart. In 2023 company net sales rose 5 percent while IQVIA doctor visits fell 14 percent. In 2024 net sales rose 6 percent while visits fell 36 percent.">
+              <line x1="145" y1="16" x2="145" y2="134" class="oa-axis"/>
+              <text x="0" y="12" class="oa-year">2023</text>
+              <rect x="145" y="20" width="14" height="16" rx="3" class="oa-bar-sales"/>
+              <text x="165" y="33" class="oa-val">+5%</text>
+              <rect x="107" y="40" width="38" height="16" rx="3" class="oa-bar-visits"/>
+              <text x="101" y="53" class="oa-val" text-anchor="end">-14%</text>
+              <text x="0" y="78" class="oa-year">2024</text>
+              <rect x="145" y="86" width="16" height="16" rx="3" class="oa-bar-sales"/>
+              <text x="167" y="99" class="oa-val">+6%</text>
+              <rect x="48" y="106" width="97" height="16" rx="3" class="oa-bar-visits"/>
+              <text x="42" y="119" class="oa-val" text-anchor="end">-36%</text>
+              <rect x="0" y="140" width="10" height="10" rx="2" class="oa-bar-sales"/>
+              <text x="16" y="149" class="oa-legend">Company net sales</text>
+              <rect x="0" y="156" width="10" height="10" rx="2" class="oa-bar-visits"/>
+              <text x="16" y="165" class="oa-legend">IQVIA doctor visits</text>
+            </svg>
+            <p class="oa-takeaway">Putting SEC sales filings beside the visit data showed the two disagree, before anyone built a target on the decline.</p>
+          </div>
+        </div>
+
+        <div class="case-results">
+          <div class="case-result"><span class="case-result-num case-result-gold">11</span><span class="case-result-label">quality checks run before every build</span></div>
+          <div class="case-result"><span class="case-result-num case-result-bronze">38</span><span class="case-result-label">reconciliation checks passing on the public data</span></div>
+          <div class="case-result"><span class="case-result-num case-result-silver">~900</span><span class="case-result-label">automated tests run in CI on every pull request</span></div>
+          <div class="case-result"><span class="case-result-num case-result-gold">~75 s</span><span class="case-result-label">for the full eight-stage publish</span></div>
+        </div>
+
+        <h4 class="oa-subhead">Business impact: what the engineering buys the business</h4>
+        <div class="oa-impact">
+          <div class="oa-impact-item">
+            <span class="oa-impact-mark">1</span>
+            <h5>Every number traces back</h5>
+            <p>Every extract is SHA-256 hashed on each run, every prediction row carries its data version, and a golden test compares the rebuilt warehouse with committed values.</p>
+          </div>
+          <div class="oa-impact-item">
+            <span class="oa-impact-mark">2</span>
+            <h5>A bad run cannot damage good data</h5>
+            <p>A failed run names its stage and leaves the last good database untouched, so reports never read from a half-built warehouse.</p>
+          </div>
+          <div class="oa-impact-item">
+            <span class="oa-impact-mark">3</span>
+            <h5>The system says when its data is old</h5>
+            <p>At the last run, monitoring reported the data as 454 days old against a 100-day limit, instead of quietly forecasting from stale numbers.</p>
+          </div>
+          <div class="oa-impact-item">
+            <span class="oa-impact-mark">4</span>
+            <h5>Joining sources surfaced a contradiction early</h5>
+            <p>Company sales rose 5% and 6% while visits fell 14% and 36%. Catching that at the data layer kept a possibly wrong decline out of targets and forecasts.</p>
+          </div>
+        </div>
+        <p class="oa-status">Status: the pipeline, tests and CI are complete. A Streamlit site over the published warehouse is built but not deployed, and the data ends in July 2025, so the monthly refresh runs on tests and a schedule, not new data. These are engineering outcomes, not measured revenue impact.</p>
+
+        <p class="case-principle-link">
+          This is where <a href="#principles" class="project-link">principle 02 (idempotent by design)</a>
+          isn't an abstraction: the whole publish is run twice on real data and must produce identical content, and
+          a failed run can never replace the last good database.
+        </p>
+      </div>
+
     </div>
   </section>
 
